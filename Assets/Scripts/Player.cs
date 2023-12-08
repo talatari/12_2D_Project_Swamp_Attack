@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
             _currentWeapon.Shoot(_shootPoint);
     }
 
@@ -36,9 +36,7 @@ public class Player : MonoBehaviour
         HealthChanged?.Invoke(_currentHealth, _health);
 
         if (_currentHealth <= 0)
-        {
             Destroy(gameObject);
-        }
     }
 
     public void AddMoney(int money)
