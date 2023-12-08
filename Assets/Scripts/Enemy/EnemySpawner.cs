@@ -66,7 +66,6 @@ public class EnemySpawner : MonoBehaviour
     {
         _currentEnemyWave = _TypesEnemies[index];
         EnemyCountChanged?.Invoke(0, 1);
-        print("EnemyCountChanged?.Invoke(0, 1)");
     }
 
     public void NextWave()
