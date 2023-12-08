@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
 public class EnemyStateMachine : MonoBehaviour
@@ -20,11 +18,11 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Update()
     {
-        if (_currentState == null)
+        if (_currentState is null)
             return;
 
         var nextState = _currentState.GetNextState();
-        if (nextState != null)
+        if (nextState is not null)
             Transit(nextState);
     }
 
@@ -32,18 +30,18 @@ public class EnemyStateMachine : MonoBehaviour
     {
         _currentState = startState;
 
-        if (_currentState != null)
+        if (_currentState is not null)
             _currentState.Enter(_target);
     }
 
     private void Transit(State nextState)
     {
-        if (_currentState != null)
+        if (_currentState is not null)
             _currentState.Exit();
 
         _currentState = nextState;
 
-        if (_currentState != null)
+        if (_currentState is not null)
             _currentState.Enter(_target);
     }
 }

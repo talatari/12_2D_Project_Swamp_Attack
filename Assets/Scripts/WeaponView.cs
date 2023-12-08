@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -28,12 +26,6 @@ public class WeaponView : MonoBehaviour
         _sellButton.onClick.RemoveListener(TryLockItem);
     }
 
-    private void TryLockItem()
-    {
-        if (_weapon.IsBuyed)
-            _sellButton.interactable = false;
-    }
-
     public void Render(Weapon weapon)
     {
         _weapon = weapon;
@@ -43,8 +35,12 @@ public class WeaponView : MonoBehaviour
         _icon.sprite = weapon.Icon;
     }
 
-    private void OnButtonClick()
+    private void TryLockItem()
     {
-        SellButtonClick?.Invoke(_weapon, this);
+        if (_weapon.IsBuyed)
+            _sellButton.interactable = false;
     }
+
+    private void OnButtonClick() => 
+        SellButtonClick?.Invoke(_weapon, this);
 }

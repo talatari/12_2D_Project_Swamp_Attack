@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HealthBar : Bar
 {
@@ -12,8 +10,6 @@ public class HealthBar : Bar
         Slider.value = 1;
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable() => 
         _player.HealthChanged -= OnValueChanged;
-    }
 }
