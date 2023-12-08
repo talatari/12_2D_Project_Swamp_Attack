@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapons:
-  - {fileID: 7070955490913520096, guid: 82b0800c64bee5e43b46d2809dbf3131, type: 3}
+  - {fileID: 0}
   _player: {fileID: 1456784572}
   _weaponViewPrefab: {fileID: -8952122256126499699, guid: 165126ac0c26d674c9f4cdc10e70f55c, type: 3}
   _itemContainer: {fileID: 1889074477}
@@ -5374,7 +5374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _weapons:
-  - {fileID: 7070955490913520096, guid: 82b0800c64bee5e43b46d2809dbf3131, type: 3}
+  - {fileID: 0}
   _shootPoint: {fileID: 1965363132}
 --- !u!1 &1496237992
 GameObject:

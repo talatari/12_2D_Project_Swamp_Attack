@@ -5,9 +5,6 @@ public abstract class Bar : MonoBehaviour
 {
     [SerializeField] protected Slider Slider;
 
-    public void OnValueChanged(int value, int maxValue)
-    {
+    public void OnValueChanged(int value, int maxValue) => 
         Slider.value = (float)value / maxValue;
-        print($"gameobject: {gameObject.name}, value: {value}, maxValue: {maxValue}");
-    }
 }
