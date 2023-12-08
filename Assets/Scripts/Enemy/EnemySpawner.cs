@@ -45,11 +45,7 @@ public class EnemySpawner : MonoBehaviour
         if (_currentEnemyWave.Count <= _spawned)
         {
             if (_TypesEnemies.Count >= _currentWaveNumber + 1)
-            {
-                print($"_TypesEnemies.Count = {_TypesEnemies.Count}");
-                print($"_currentWaveNumber = {_currentWaveNumber}");
                 AllEnemySpawned?.Invoke();
-            }
 
             _currentEnemyWave = null;
         }
