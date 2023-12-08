@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class AttackState : State
+public class EnemyAttackState : State
 {
     [SerializeField] private int _damage;
-    [SerializeField] private float _delay;
+    [SerializeField] private float _delayAttack;
 
     private float _lastAttackTime;
     private Animator _animator;
@@ -17,7 +17,7 @@ public class AttackState : State
         if (_lastAttackTime <= 0)
         {
             Attack(Target);
-            _lastAttackTime = _delay;
+            _lastAttackTime = _delayAttack;
         }
 
         _lastAttackTime -= Time.deltaTime;
