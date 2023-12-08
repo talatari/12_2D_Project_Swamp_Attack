@@ -3,27 +3,27 @@ using UnityEngine.UI;
 
 public class NextWave : MonoBehaviour
 {
-    [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private Button _nextWaveButton;
 
     private void OnEnable()
     {
-        enemySpawner.AllEnemySpawned += OnAllEnemySpawned;
+        _enemySpawner.AllEnemySpawned += OnAllEnemySpawned;
         _nextWaveButton.onClick.AddListener(OnNextWaveButtonClick);
     }
 
     private void OnDisable()
     {
-        enemySpawner.AllEnemySpawned -= OnAllEnemySpawned;
+        _enemySpawner.AllEnemySpawned -= OnAllEnemySpawned;
         _nextWaveButton.onClick.RemoveListener(OnNextWaveButtonClick);
     }
 
-    public void OnAllEnemySpawned() => 
+    private void OnAllEnemySpawned() => 
         _nextWaveButton.gameObject.SetActive(true);
 
-    public void OnNextWaveButtonClick()
+    private void OnNextWaveButtonClick()
     {
-        enemySpawner.NextWave();
+        _enemySpawner.NextWave();
         _nextWaveButton.gameObject.SetActive(false);
     }
 }

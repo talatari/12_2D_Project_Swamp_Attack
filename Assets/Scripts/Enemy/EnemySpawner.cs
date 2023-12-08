@@ -2,13 +2,21 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class EnemyWave
+{
+    public Enemy Prefab;
+    public float Delay;
+    public int Count;
+}
+
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private List<Wave> _waves;
+    [SerializeField] private List<EnemyWave> _TypesEnemies;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Player _player;
 
-    private Wave _currentWave;
+    private EnemyWave _currentEnemyWave;
     private int _currentWaveNumber;
     private float _timeAfterLastSpawn;
     private int _spawned;
@@ -21,44 +29,49 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (_currentWave is null)
+        if (_currentEnemyWave is null)
             return;
 
         _timeAfterLastSpawn += Time.deltaTime;
 
-        if (_timeAfterLastSpawn >= _currentWave.Delay)
+        if (_timeAfterLastSpawn >= _currentEnemyWave.Delay)
         {
             Spawn();
             _spawned++;
             _timeAfterLastSpawn = 0;
-            EnemyCountChanged?.Invoke(_spawned, _currentWave.Count);
+            EnemyCountChanged?.Invoke(_spawned, _currentEnemyWave.Count);
         }
 
-        if (_currentWave.Count <= _spawned)
+        if (_currentEnemyWave.Count <= _spawned)
         {
-            if (_waves.Count > _currentWaveNumber + 1)
+            if (_TypesEnemies.Count >= _currentWaveNumber + 1)
+            {
+                print($"_TypesEnemies.Count = {_TypesEnemies.Count}");
+                print($"_currentWaveNumber = {_currentWaveNumber}");
                 AllEnemySpawned?.Invoke();
+            }
 
-            _currentWave = null;
+            _currentEnemyWave = null;
         }
     }
 
     private void Spawn()
     {
-        Enemy enemy = Instantiate(_currentWave.Prefab, _spawnPoint.position, _spawnPoint.rotation, _spawnPoint);
+        Enemy enemy = Instantiate(_currentEnemyWave.Prefab, _spawnPoint.position, _spawnPoint.rotation, _spawnPoint);
         enemy.Init(_player);
         enemy.Dying += OnEnemyDying;
     }
 
     private void SetWave(int index)
     {
-        _currentWave = _waves[index];
+        _currentEnemyWave = _TypesEnemies[index];
         EnemyCountChanged?.Invoke(0, 1);
+        print("EnemyCountChanged?.Invoke(0, 1)");
     }
 
     public void NextWave()
     {
-        SetWave(++_currentWaveNumber);
+        SetWave(_currentWaveNumber++);
         _spawned = 0;
     }
 
