@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (_currentWave == null)
+        if (_currentWave is null)
             return;
 
         _timeAfterLastSpawn += Time.deltaTime;
@@ -68,4 +68,3 @@ public class EnemySpawner : MonoBehaviour
         _player.AddMoney(enemy.Reward);
     }
 }
-

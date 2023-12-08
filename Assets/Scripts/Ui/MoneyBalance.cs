@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MoneyBalance : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _money;
+    [SerializeField] private TextMeshProUGUI _money;
     [SerializeField] private Player _player;
 
     private void OnEnable()

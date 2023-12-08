@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class WeaponView : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _label;
-    [SerializeField] private TMP_Text _price;
-    [SerializeField] private Image _icon;
+    [SerializeField] private TextMeshProUGUI _label;
+    [SerializeField] private TextMeshProUGUI _price;
+    [SerializeField] private Image _iconImage;
     [SerializeField] private Button _sellButton;
 
     private Weapon _weapon;
@@ -32,7 +32,7 @@ public class WeaponView : MonoBehaviour
 
         _label.text = weapon.Label;
         _price.text = weapon.Price.ToString();
-        _icon.sprite = weapon.Icon;
+        _iconImage.sprite = weapon.Icon;
     }
 
     private void TryLockItem()

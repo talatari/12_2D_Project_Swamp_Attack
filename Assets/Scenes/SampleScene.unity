@@ -542,7 +542,7 @@ MonoBehaviour:
   _weapons:
   - {fileID: 7070955490913520096, guid: 82b0800c64bee5e43b46d2809dbf3131, type: 3}
   _player: {fileID: 1456784572}
-  _weaponViewPrefab: {fileID: 0}
+  _weaponViewPrefab: {fileID: -8952122256126499699, guid: 165126ac0c26d674c9f4cdc10e70f55c, type: 3}
   _itemContainer: {fileID: 1889074477}
 --- !u!1 &64299768
 GameObject:
@@ -3425,12 +3425,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waves:
-  - Prefab: {fileID: 0}
+  - Prefab: {fileID: 3207617679987409857, guid: 7e0229517982a7d4fbfc9c77ad2f24df, type: 3}
     Delay: 1
     Count: 5
-  - Prefab: {fileID: 0}
-    Delay: 0.5
-    Count: 10
   _spawnPoint: {fileID: 852235163}
   _player: {fileID: 1456784572}
 --- !u!4 &852235163
@@ -3993,7 +3990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1135109770
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4057,7 +4054,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1135109773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 487426301}
+        m_TargetAssemblyTypeName: NextWave, Assembly-CSharp
+        m_MethodName: OnNextWaveButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1135109773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5810,7 +5819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NextWave
+  m_text: Next Wave
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5879,10 +5888,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1568478247}
-    characterCount: 8
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
