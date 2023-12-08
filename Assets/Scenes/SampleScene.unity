@@ -881,10 +881,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 67024011}
+  - component: {fileID: 67024012}
   - component: {fileID: 67024010}
   - component: {fileID: 67024009}
   - component: {fileID: 67024008}
-  - component: {fileID: 67024012}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1977,7 +1977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &487426300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2010,7 +2010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32cd816fe1ffcf947985ce6330fd8690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawner: {fileID: 852235162}
+  _enemySpawner: {fileID: 0}
   _nextWaveButton: {fileID: 1135109772}
 --- !u!1 &519420028
 GameObject:
@@ -3424,10 +3424,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef8dc2630fa86c4989ad20effbe85c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waves:
+  _TypesEnemies:
   - Prefab: {fileID: 3207617679987409857, guid: 7e0229517982a7d4fbfc9c77ad2f24df, type: 3}
     Delay: 1
     Count: 5
+  - Prefab: {fileID: 3207617679987409857, guid: 7e0229517982a7d4fbfc9c77ad2f24df, type: 3}
+    Delay: 0.5
+    Count: 10
   _spawnPoint: {fileID: 852235163}
   _player: {fileID: 1456784572}
 --- !u!4 &852235163
@@ -6984,9 +6987,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1876423875}
   - {fileID: 1840623888}
   - {fileID: 1361849860}
+  - {fileID: 67024011}
   - {fileID: 1456784571}
   - {fileID: 852235163}
-  - {fileID: 67024011}
-  - {fileID: 1876423875}
