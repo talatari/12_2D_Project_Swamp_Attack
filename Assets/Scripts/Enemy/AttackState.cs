@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class AttackState : State
@@ -11,14 +9,12 @@ public class AttackState : State
     private float _lastAttackTime;
     private Animator _animator;
 
-    private void Start()
-    {
+    private void Start() => 
         _animator = GetComponent<Animator>();
-    }
 
     private void Update()
     {
-        if(_lastAttackTime <= 0)
+        if (_lastAttackTime <= 0)
         {
             Attack(Target);
             _lastAttackTime = _delay;
@@ -29,7 +25,7 @@ public class AttackState : State
 
     private void Attack(Player target)
     {
-        _animator.Play("Attack");
+        _animator.Play(StatesAnimatorData.Params.Attack);
         target.ApplyDamage(_damage);
     }
 }

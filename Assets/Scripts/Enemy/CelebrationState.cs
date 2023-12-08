@@ -1,24 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class CelebrationState : State
 {
     private Animator _animator;
 
-    private void Awake()
-    {
+    private void Awake() => 
         _animator = GetComponent<Animator>();
-    }
 
-    private void OnEnable()
-    {
-        _animator.Play("Celebration");
-    }
+    private void OnEnable() => 
+        _animator.Play(StatesAnimatorData.Params.Celebration);
 
-    private void OnDisable()
-    {
+    private void OnDisable() => 
         _animator.StopPlayback();
-    }
 }

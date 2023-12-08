@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,9 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
 
     private Weapon _currentWeapon;
-    private int _currentWeaponNumber = 0;
+    private int _currentWeaponNumber;
     private int _currentHealth;
-    private Animator _animator;
 
     public int Money { get; private set; }
 
@@ -24,15 +22,12 @@ public class Player : MonoBehaviour
     {
         ChangeWeapon(_weapons[_currentWeaponNumber]);
         _currentHealth = _health;
-        _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        {
             _currentWeapon.Shoot(_shootPoint);
-        }
     }
 
     public void ApplyDamage(int damage)
@@ -79,8 +74,6 @@ public class Player : MonoBehaviour
         ChangeWeapon(_weapons[_currentWeaponNumber]);
     }
 
-    private void ChangeWeapon(Weapon weapon)
-    {
+    private void ChangeWeapon(Weapon weapon) => 
         _currentWeapon = weapon;
-    }
 }
