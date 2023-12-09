@@ -9,13 +9,16 @@ namespace Players
     public class Player : MonoBehaviour
     {
         [SerializeField] private List<Weapon> _weapons;
+
+        private Weapon _currentWeapon;
         private Health _health;
+        private Enemy _currentTarget;
         
         // public event Action<int> PlayerHealthed;
         public event Action<int> PlayerTakeDamage;
         public event Action<Enemy> PlayerGiveDamage;
 
-        private void Start()
+        private void Awake()
         {
             _health = GetComponent<Health>();
         }
@@ -32,5 +35,11 @@ namespace Players
 
         private void OnDestroy() => 
             Destroy(gameObject);
+
+        public void TakeDamage(int damage) => 
+            PlayerTakeDamage?.Invoke(damage);
+
+        private void OnGiveDamage() => 
+            PlayerGiveDamage?.Invoke(_currentTarget);
     }
 }
