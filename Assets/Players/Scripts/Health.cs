@@ -1,8 +1,8 @@
-namespace Player.Scripts
-{
-    using System;
-    using UnityEngine;
+using System;
+using UnityEngine;
 
+namespace Players
+{
     [RequireComponent(typeof(Player))]
     public class Health : MonoBehaviour
     {
@@ -12,8 +12,8 @@ namespace Player.Scripts
         private int _currentHealth;
         private int _minHealth = 0;
 
-        public event Action PlayerDestroy = delegate { };
-        public event Action<int, int> HealthChanged = delegate { };
+        public event Action PlayerDestroy;
+        public event Action<int, int> HealthChanged;
 
         public int MaxHealth => _maxHealth;
         public int CurrentHealth => _currentHealth;
@@ -22,35 +22,35 @@ namespace Player.Scripts
         {
             _player = GetComponent<Player>();
             // _player.PlayerHealthed += OnCollectedAidKit;
-            // _player.PlayerTakeDamage += OnTakeDamage;
+            _player.PlayerTakeDamage += OnTakeDamage;
         
             _currentHealth = _maxHealth;
         }
 
         private void Start() => 
-            HealthChanged(_currentHealth, _maxHealth);
+            HealthChanged?.Invoke(_currentHealth, _maxHealth);
 
         private void OnDestroy()
         {
             // _player.PlayerHealthed -= OnCollectedAidKit;
-            // _player.PlayerTakeDamage -= OnTakeDamage;
+            _player.PlayerTakeDamage -= OnTakeDamage;
         }
 
-        private void OnCollectedAidKit(int health)
-        {
-            _currentHealth = Mathf.Clamp(_currentHealth += health, _minHealth, _maxHealth);
-        
-            HealthChanged(_currentHealth, _maxHealth);
-        }
+        // private void OnCollectedAidKit(int health)
+        // {
+        //     _currentHealth = Mathf.Clamp(_currentHealth += health, _minHealth, _maxHealth);
+        //
+        //     HealthChanged?.Invoke(_currentHealth, _maxHealth);
+        // }
     
         private void OnTakeDamage(int damage)
         {
             _currentHealth = Mathf.Clamp(_currentHealth -= damage, _minHealth, _maxHealth);
         
             if (_currentHealth <= _minHealth)
-                PlayerDestroy();
+                PlayerDestroy?.Invoke();
         
-            HealthChanged(_currentHealth, _maxHealth);
+            HealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
     }
 }
