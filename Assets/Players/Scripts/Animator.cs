@@ -1,8 +1,8 @@
+using System;
+using UnityEngine;
+
 namespace Players
 {
-    using System;
-    using UnityEngine;
-
     [RequireComponent(typeof(UnityEngine.Animator))]
     public class Animator : MonoBehaviour
     {
