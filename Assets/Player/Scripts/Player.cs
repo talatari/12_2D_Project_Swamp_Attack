@@ -1,6 +1,15 @@
+using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+namespace Player.Scripts
 {
+    public class Player : MonoBehaviour
+    {
+        private Health _health;
 
+        private void Start()
+        {
+            _health = GetComponent<Health>();
+        }
+    }
 }
