@@ -2,16 +2,19 @@ using UnityEngine;
 
 namespace Players
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private float _startSpeed;
+        [SerializeField] private float _shootDelay;
 
-        private Vector2 _targetPosition;
         private float _elapsedTime;
-        private Vector2 _startPosition;
+        private Vector3 _startPosition;
+        private Vector3 _targetPosition;
+        private Rigidbody2D _rigidbody2D;
 
         private void Start()
         {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
             float liveTime = 30f;
             _startPosition = transform.position;
             Destroy(gameObject, liveTime);
@@ -19,32 +22,22 @@ namespace Players
 
         private void Update()
         {
-            if (_elapsedTime < _startSpeed)
-            {
-                float delta = _elapsedTime / _startSpeed;
-                transform.position = Vector2.Lerp(_startPosition, _targetPosition, delta);
-                _elapsedTime += Time.deltaTime;
-            }
-            else
-            {
-                transform.position = _targetPosition;
-                Destroy(gameObject);
-            }
+            _rigidbody2D.MovePosition(_targetPosition);
+
+            // if (_elapsedTime < _shootDelay)
+            // {
+            //     float delta = _elapsedTime / _shootDelay;
+            //     transform.position = Vector3.Lerp(_startPosition, _targetPosition, delta);
+            //     _elapsedTime += Time.deltaTime;
+            // }
+            // else
+            // {
+            //     transform.position = _targetPosition;
+            //     Destroy(gameObject);
+            // }
         }
 
-        public void SetTargetPosition(Vector2 targetPosition)
-        {
-            float minDistanceShoot = -3f;
-            
-            if (_startPosition.x + targetPosition.x < minDistanceShoot)
-            {
-                _targetPosition = targetPosition;
-            }
-            else
-            {
-                _targetPosition = targetPosition;
-                _targetPosition.x = minDistanceShoot + targetPosition.x;
-            }
-        }
+        public void SetTargetPosition(Vector3 targetPosition) => 
+            _targetPosition = targetPosition;
     }
 }
