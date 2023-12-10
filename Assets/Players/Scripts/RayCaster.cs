@@ -7,9 +7,9 @@ namespace Players
     {
         private Camera _camera;
 
-        public event Action<Vector2> HaveTarget;
+        public event Action<Vector3> HaveTarget;
     
-        public Vector2 Target { get; private set; }
+        public Vector3 Target { get; private set; }
 
         private void Start() => 
             _camera = Camera.main;

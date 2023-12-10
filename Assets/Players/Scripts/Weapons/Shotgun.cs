@@ -4,7 +4,8 @@ namespace Players
 {
     public class Shotgun : Weapon
     {
-        private Vector2[] _offsets = { new (-0.5f, -0.1f), new (0.1f, -0.4f), new (0.0f, 0.4f), new (0.3f, 0.1f) };
+        private Vector3[] _offsets = { 
+            new (-0.5f, -0.1f, 0.0f), new (0.1f, -0.4f, 0.0f), new (0.0f, 0.4f, 0.0f), new (0.3f, 0.1f, 0.0f) };
         private float _elapsedTime;
 
         private void Update() => 
@@ -18,20 +19,11 @@ namespace Players
                 Vector3 position = shootPoint.position;
 
                 if (target.x < position.x)
-                {
                     for (int i = 0; i < _offsets.Length; i++)
                     {
-                        Quaternion rotation = Quaternion.LookRotation(target - position);
-                        Bullet bullet = Instantiate(Bullet, position, Quaternion.Euler(rotation));
+                        Bullet bullet = Instantiate(Bullet, position, Quaternion.identity);
                         bullet.SetTargetPosition(target + _offsets[i]);
                     }
-                    
-                    // Angle - угол поворота в радианах
-                    // Axis - ось вращения (например, Vector3.up или Vector3.right)
-                    // var rotation = Quaternion.LookRotation(target - position);
-                    // var newRotation = Quaternion.Slerp(Quaternion.identity, rotation, 5 * Time.deltaTime);
-                    // transform.rotation = newRotation;
-                }
             }
         }
     }
