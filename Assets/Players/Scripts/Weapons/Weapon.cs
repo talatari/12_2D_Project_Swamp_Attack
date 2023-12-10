@@ -8,10 +8,10 @@ namespace Players
         [SerializeField] private int _damage;
         [SerializeField] private int _speedShoot;
         [SerializeField] private int _price;
-        [SerializeField] private Sprite _icon;
         [SerializeField] private bool _isBuyed;
-        [SerializeField] private Bullet _bullet;
+        [SerializeField] private Sprite _icon;
+        [SerializeField] protected Bullet Bullet;
 
-        public abstract void Shoot(Transform shootPoint);
+        public abstract Bullet[] Shoot(Transform shootPoint, Vector3 target);
     }
 }
