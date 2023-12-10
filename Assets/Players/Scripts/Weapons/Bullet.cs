@@ -7,6 +7,7 @@ namespace Players
     {
         [SerializeField] private float _shootDelay;
 
+        private float _liveTime = 3f;
         private float _elapsedTime;
         private Vector3 _startPosition;
         private Vector3 _targetPosition;
@@ -15,9 +16,9 @@ namespace Players
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            float liveTime = 30f;
+            
             _startPosition = transform.position;
-            Destroy(gameObject, liveTime);
+            Destroy(gameObject, _liveTime);
         }
 
         private void Update()
