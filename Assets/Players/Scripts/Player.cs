@@ -46,7 +46,7 @@ namespace Players
         public void GiveDamage() => 
             _attacker.PlayerGiveDamage(_currentTarget);
 
-        private void OnShoot(Vector3 target) => 
+        private void OnShoot(Vector2 target) => 
             _attacker.Shoot(_currentWeapon, target);
     }
 }

@@ -6,23 +6,45 @@ namespace Players
     {
         [SerializeField] private float _startSpeed;
 
-        private Vector3 _targetPosition;
+        private Vector2 _targetPosition;
+        private float _elapsedTime;
+        private Vector2 _startPosition;
 
         private void Start()
         {
-            float liveTime = 3f;
-            
+            float liveTime = 30f;
+            _startPosition = transform.position;
             Destroy(gameObject, liveTime);
         }
-        
+
         private void Update()
         {
-            // transform.Translate(Vector3.left * (_startSpeed * Time.deltaTime), Space.World);
-            
-            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, _startSpeed * Time.deltaTime);
+            if (_elapsedTime < _startSpeed)
+            {
+                float delta = _elapsedTime / _startSpeed;
+                transform.position = Vector2.Lerp(_startPosition, _targetPosition, delta);
+                _elapsedTime += Time.deltaTime;
+            }
+            else
+            {
+                transform.position = _targetPosition;
+                Destroy(gameObject);
+            }
         }
 
-        public void SetTargetPosition(Vector3 targetPosition) => 
-            _targetPosition = targetPosition;
+        public void SetTargetPosition(Vector2 targetPosition)
+        {
+            float minDistanceShoot = -3f;
+            
+            if (_startPosition.x + targetPosition.x < minDistanceShoot)
+            {
+                _targetPosition = targetPosition;
+            }
+            else
+            {
+                _targetPosition = targetPosition;
+                _targetPosition.x = minDistanceShoot + targetPosition.x;
+            }
+        }
     }
 }
