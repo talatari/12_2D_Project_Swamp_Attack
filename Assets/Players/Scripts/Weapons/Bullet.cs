@@ -23,19 +23,19 @@ namespace Players
 
         private void Update()
         {
-            _rigidbody2D.MovePosition(_targetPosition);
+            // _rigidbody2D.MovePosition(_targetPosition);
 
-            // if (_elapsedTime < _shootDelay)
-            // {
-            //     float delta = _elapsedTime / _shootDelay;
-            //     transform.position = Vector3.Lerp(_startPosition, _targetPosition, delta);
-            //     _elapsedTime += Time.deltaTime;
-            // }
-            // else
-            // {
-            //     transform.position = _targetPosition;
-            //     Destroy(gameObject);
-            // }
+            if (_elapsedTime < _shootDelay)
+            {
+                float delta = _elapsedTime / _shootDelay;
+                transform.position = Vector3.Lerp(_startPosition, _targetPosition, delta);
+                _elapsedTime += Time.deltaTime;
+            }
+            else
+            {
+                transform.position = _targetPosition;
+                Destroy(gameObject);
+            }
         }
 
         public void SetTargetPosition(Vector3 targetPosition) => 
