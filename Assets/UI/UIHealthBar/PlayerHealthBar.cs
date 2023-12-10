@@ -12,7 +12,7 @@ namespace UI
     
         private Health _playerHealth;
 
-        private void Start()
+        private void Awake()
         {
             _playerHealth = FindObjectOfType<Health>();
             _playerHealth.HealthChanged += OnRefreshHealthBar;

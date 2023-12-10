@@ -10,7 +10,7 @@ namespace Players
 
         private void Start()
         {
-            float liveTime = 5f;
+            float liveTime = 3f;
             
             Destroy(gameObject, liveTime);
         }
@@ -19,7 +19,7 @@ namespace Players
         {
             // transform.Translate(Vector3.left * (_startSpeed * Time.deltaTime), Space.World);
             
-            transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _startSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, _startSpeed * Time.deltaTime);
         }
 
         public void SetTargetPosition(Vector3 targetPosition) => 

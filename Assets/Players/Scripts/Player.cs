@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Players
 {
-    [RequireComponent(typeof(Health), typeof(Animator))]
+    [RequireComponent(typeof(Health), typeof(Animator), typeof(Attacker))]
     public class Player : MonoBehaviour
     {
         [SerializeField] private List<Weapon> _weapons;
@@ -20,6 +20,7 @@ namespace Players
         {
             _health = GetComponent<Health>();
             _animator = GetComponent<Animator>();
+            _attacker = GetComponent<Attacker>();
             _rayCaster = FindObjectOfType<RayCaster>();
             _currentWeapon = _weapons[_weapons.Count - 1];
         }
