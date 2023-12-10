@@ -22,15 +22,8 @@ namespace Players
 
         private void Interact()
         {
-            print("Interact");
-            
-            if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out RaycastHit raycastHit))
-            {
-                Target = raycastHit.point;
-                HaveTarget?.Invoke(Target);
-                
-                print(Target);
-            }
+            Target = _camera.ScreenToWorldPoint(Input.mousePosition);
+            HaveTarget?.Invoke(Target);
         }
     }
 }

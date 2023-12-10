@@ -4,20 +4,30 @@ namespace Players
 {
     public class Shotgun : Weapon
     {
-        private Vector3[] _offsets = { new (10, -3, 0), new (0, -6, 0), new (-3, 4, 0), new (-5, 2, 0) }; 
+        private Vector3[] _offsets = { new (1, -1, 0), new (0, -1, 0), new (-1, 1, 0), new (-1, 1, 0) };
         
-        public override Bullet[] Shoot(Transform shootPoint, Vector3 target)
+        private float _elapsedTime;
+
+        private void Update() => 
+            _elapsedTime -= Time.deltaTime;
+
+        public override void Shoot(Transform shootPoint, Vector3 target)
         {
-            Bullet[] bullets = { };
-            Vector3 position = shootPoint.position;
-
-            for (int i = 0; i < _offsets.Length; i++)
+            if (_elapsedTime <= 0.1f)
             {
-                bullets[i] = Instantiate(Bullet, position + _offsets[i], Quaternion.identity);
-                bullets[i].SetTargetPosition(target);
-            }
+                _elapsedTime = SpeedShoot;
+                Vector3 position = shootPoint.position;
 
-            return bullets;
+                if (target.x < position.x)
+                {
+                    for (int i = 0; i < _offsets.Length; i++)
+                    {
+                        // x: -1.175, y: -0.535
+                        Bullet bullet = Instantiate(Bullet, position + _offsets[i], Quaternion.identity);
+                        bullet.SetTargetPosition(target);
+                    }
+                }
+            }
         }
     }
 }
