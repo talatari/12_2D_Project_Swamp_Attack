@@ -12,6 +12,6 @@ namespace Players
         [SerializeField] private Sprite _icon;
         [SerializeField] protected Bullet Bullet;
 
-        public abstract void Shoot(Transform shootPoint, Vector3 target);
+        public abstract void Shoot(Transform shootPoint, Vector2 target);
     }
 }
