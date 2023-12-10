@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Enemies;
 using UnityEngine;
@@ -10,47 +9,43 @@ namespace Players
     {
         [SerializeField] private List<Weapon> _weapons;
 
-        private Weapon _currentWeapon;
         private Health _health;
-        private Enemy _currentTarget;
+        private Weapon _currentWeapon;
+        private Attacker _attacker;
         private Animator _animator;
-        
-        // public event Action<int> PlayerHealthed;
-        public event Action<int> PlayerTakeDamage;
-        public event Action<Enemy> PlayerGiveDamage;
+        private Enemy _currentTarget;
+        private RayCaster _rayCaster;
 
         private void Awake()
         {
             _health = GetComponent<Health>();
             _animator = GetComponent<Animator>();
+            _rayCaster = FindObjectOfType<RayCaster>();
+            _currentWeapon = _weapons[_weapons.Count - 1];
         }
 
         private void OnEnable()
         {
             _health.PlayerDestroy += OnDestroy;
-        }
-
-        private void Update()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                // TODO: получить координаты клика - нужен рейкастер
-                // TODO: передать в метод Shoot класса Attacker поинт таргета
-            }
+            _rayCaster.HaveTarget += OnShoot;
         }
 
         private void OnDisable()
         {
             _health.PlayerDestroy -= OnDestroy;
+            _rayCaster.HaveTarget -= OnShoot;
         }
 
         private void OnDestroy() => 
             Destroy(gameObject);
 
-        public void TakeDamage(int damage) => 
-            PlayerTakeDamage?.Invoke(damage);
+        public void TakeDamage(int damage) =>
+            _health.TakeDamage(damage);
 
-        private void OnGiveDamage() => 
-            PlayerGiveDamage?.Invoke(_currentTarget);
+        public void GiveDamage() => 
+            _attacker.PlayerGiveDamage(_currentTarget);
+
+        private void OnShoot(Vector3 target) => 
+            _attacker.Shoot(_currentWeapon, target);
     }
 }

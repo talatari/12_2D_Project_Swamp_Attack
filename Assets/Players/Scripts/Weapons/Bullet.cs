@@ -6,6 +6,8 @@ namespace Players
     {
         [SerializeField] private float _startSpeed;
 
+        private Vector3 _targetPosition;
+
         private void Start()
         {
             float liveTime = 5f;
@@ -15,7 +17,12 @@ namespace Players
         
         private void Update()
         {
-            transform.Translate(Vector3.left * (_startSpeed * Time.deltaTime), Space.World);
+            // transform.Translate(Vector3.left * (_startSpeed * Time.deltaTime), Space.World);
+            
+            transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _startSpeed * Time.deltaTime);
         }
+
+        public void SetTargetPosition(Vector3 targetPosition) => 
+            _targetPosition = targetPosition;
     }
 }
