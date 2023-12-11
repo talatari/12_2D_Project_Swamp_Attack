@@ -11,10 +11,7 @@ namespace Players
         public void Shoot(Weapon weapon, Vector3 target) => 
             weapon.Shoot(_shootPoint, target);
 
-        public void PlayerGiveDamage(Enemy enemy)
-        {
-            if (enemy is not null)
-                enemy.TakeDamage(_damage);
-        }
+        public void PlayerGiveDamage(Enemy enemy) => 
+            enemy?.TakeDamage(_damage);
     }
 }

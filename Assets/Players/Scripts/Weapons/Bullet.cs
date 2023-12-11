@@ -31,9 +31,7 @@ namespace Players
         public void SetDamage(int damage) => 
             _damage = damage;
 
-        public void SetTargetPosition(Vector3 targetPosition)
-        {
-            _rigidbody2D.velocity = (targetPosition - transform.position).normalized * _speedBullet;
-        }
+        public void SetTargetPosition(Vector3 targetPosition) => 
+            _rigidbody2D.velocity = (Vector2) (targetPosition - transform.position).normalized * _speedBullet;
     }
 }
