@@ -33,7 +33,6 @@ namespace Players
         {
             _health.PlayerDestroy += OnDestroy;
             _rayCaster.HaveTarget += OnShoot;
-            _playerAnimator.AttackAnimationEnd += OnStopShoot;
             _currentWeapon.ShootedWeapon += OnCanShoot;
         }
 
@@ -41,7 +40,6 @@ namespace Players
         {
             _health.PlayerDestroy -= OnDestroy;
             _rayCaster.HaveTarget -= OnShoot;
-            _playerAnimator.AttackAnimationEnd -= OnStopShoot;
             _currentWeapon.ShootedWeapon -= OnCanShoot;
         }
 
@@ -56,25 +54,15 @@ namespace Players
 
         private void OnShoot(Vector3 target)
         {
-            print("OnShoot");
-            print($"_canShoot: {_canShoot}");
-            
             if (_canShoot)
             {
-                _canShoot = false;
                 _playerAnimator.StartShoot();
                 _attacker.Shoot(_currentWeapon, target);
+                _canShoot = false;
             }
         }
 
-        private void OnStopShoot()
-        {
-            // _canShoot = true;
-        }
-
-        private void OnCanShoot()
-        {
+        private void OnCanShoot() => 
             _canShoot = true;
-        }
     }
 }
