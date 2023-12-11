@@ -15,14 +15,15 @@ namespace Players
         {
             if (_elapsedTime <= 0.1f)
             {
-                _elapsedTime = SpeedShoot;
+                _elapsedTime = ShootDelay;
                 Vector3 position = shootPoint.position;
 
                 if (target.x < position.x)
                     for (int i = 0; i < _offsets.Length; i++)
                     {
                         Bullet bullet = Instantiate(Bullet, position, Quaternion.identity);
-                        bullet.SetTargetPosition(target + _offsets[i]);
+                        bullet.SetDamage(Damage);
+                        // bullet.SetTargetPosition(target + _offsets[i]);
                     }
             }
         }

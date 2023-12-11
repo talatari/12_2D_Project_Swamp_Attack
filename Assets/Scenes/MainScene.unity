@@ -489,10 +489,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
-    - target: {fileID: 7859311211811839037, guid: b91f9d93bed784efb9b5560a9463c608, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -545,10 +541,6 @@ PrefabInstance:
     - target: {fileID: 53269989929343489, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251559269179299661, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
-      propertyPath: SpeedShoot
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6304789768190940694, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
       propertyPath: m_Name
