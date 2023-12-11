@@ -6,7 +6,7 @@ namespace Players
     {
         [SerializeField] private string _title;
         [SerializeField] protected int Damage;
-        [SerializeField] protected float SpeedShoot;
+        [SerializeField] protected float ShootDelay;
         [SerializeField] private int _price;
         [SerializeField] private bool _isBuyed;
         [SerializeField] private Sprite _icon;

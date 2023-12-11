@@ -1,3 +1,4 @@
+using Enemies;
 using UnityEngine;
 
 namespace Players
@@ -5,40 +6,30 @@ namespace Players
     [RequireComponent(typeof(Rigidbody2D))]
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private float _shootDelay;
+        [SerializeField] private float _speedBullet;
 
         private float _liveTime = 3f;
         private float _elapsedTime;
-        private Vector3 _startPosition;
-        private Vector3 _targetPosition;
         private Rigidbody2D _rigidbody2D;
+        private int _damage;
 
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            
-            _startPosition = transform.position;
+            _rigidbody2D.velocity = transform.forward * _speedBullet;
             Destroy(gameObject, _liveTime);
         }
 
-        private void Update()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            // _rigidbody2D.MovePosition(_targetPosition);
-
-            if (_elapsedTime < _shootDelay)
+            if (other.TryGetComponent(out Enemy enemy))
             {
-                float delta = _elapsedTime / _shootDelay;
-                transform.position = Vector3.Lerp(_startPosition, _targetPosition, delta);
-                _elapsedTime += Time.deltaTime;
-            }
-            else
-            {
-                transform.position = _targetPosition;
+                enemy.TakeDamage(_damage);
                 Destroy(gameObject);
             }
         }
 
-        public void SetTargetPosition(Vector3 targetPosition) => 
-            _targetPosition = targetPosition;
+        public void SetDamage(int damage) => 
+            _damage = damage;
     }
 }
