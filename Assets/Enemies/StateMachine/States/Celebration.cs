@@ -10,10 +10,10 @@ namespace Enemies.StateMachine.States
         private void Awake() =>
             _enemyAnimator = GetComponent<EnemyAnimator>();
 
-        // private void OnEnable() =>
-        //     _enemyAnimator.StartCelebration();
-        //
-        // private void OnDisable() =>
-        //     _enemyAnimator.StopPlayback();
+        private void OnEnable() =>
+            _enemyAnimator.StartCelebration();
+        
+        private void OnDisable() =>
+            _enemyAnimator.StopPlayback();
     }
 }

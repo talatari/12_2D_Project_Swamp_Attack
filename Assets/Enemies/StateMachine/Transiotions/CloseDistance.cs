@@ -12,11 +12,11 @@ namespace Enemies.StateMachine.Transiotions
 
         private void Update()
         {
-            if (Player is null)
+            if (Player == null)
                 return;
             
             if (Vector2.Distance(transform.position, Player.transform.position) < _transitionRange) 
-                    NeedTransit = true;
+                NeedTransit = true;
         }
     }
 }

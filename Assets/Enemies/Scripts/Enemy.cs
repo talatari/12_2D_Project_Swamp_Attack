@@ -24,7 +24,7 @@ namespace Enemies
 
         private void OnDestroy()
         {
-            if (_player is not null)
+            if (_player != null)
             {
                 _player.GiveReward(_coins);
                 _player = null;
