@@ -9,8 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8540702691940530945}
+  - component: {fileID: 2564537227244355142}
+  - component: {fileID: 980436438907599451}
   - component: {fileID: 1180506070068989633}
   - component: {fileID: 7078586933248835706}
+  - component: {fileID: 3180088296071839027}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -33,6 +36,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2564537227244355142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501453780326936753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb24dbb2e434c52bc65d4e7098acdc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coins: 2
+  _player: {fileID: 0}
+--- !u!114 &980436438907599451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501453780326936753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b42fb93c1f42e8956ce1483810b9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 20
 --- !u!212 &1180506070068989633
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106,3 +136,68 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &3180088296071839027
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501453780326936753}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2.08, y: 1.6}
+    newSize: {x: 2.08, y: 1.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.77354, y: 0.42981362}
+      - {x: 1.0563974, y: 0.68968844}
+      - {x: 0.9229815, y: 0.9563966}
+      - {x: 0.3330481, y: 0.8362484}
+      - {x: 0.21746445, y: 1.470995}
+      - {x: -0.21480179, y: 1.5957534}
+      - {x: -0.4879279, y: 1.5709476}
+      - {x: -0.7243471, y: 1.2105582}
+      - {x: -0.87780666, y: 1.0915241}
+      - {x: -0.8859401, y: 0.504261}
+      - {x: -1.0486379, y: 0.37788868}
+      - {x: -0.6913161, y: 0.30281353}
+      - {x: -0.8348708, y: -0.003361702}
+      - {x: -0.47838402, y: -0.008198738}
+      - {x: 0.07192539, y: 0.004099369}
+      - {x: 0.20211151, y: 0.0031056777}
+      - {x: 0.21512294, y: 0.15335083}
+      - {x: -0.008089781, y: 0.39016724}
+      - {x: 0.28409937, y: 0.51254714}
+      - {x: 0.518136, y: 0.42658406}
+  m_UseDelaunayMesh: 0
