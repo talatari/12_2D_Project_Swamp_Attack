@@ -1,3 +1,4 @@
+using Enemies.StateMachine.States;
 using Players;
 using UnityEngine;
 
@@ -18,6 +19,8 @@ namespace Enemies.StateMachine
         {
             _enemy = GetComponent<Enemy>();
             _player = _enemy.Player;
+            
+            Reset(_startState);
         }
 
         private void Update()
@@ -26,7 +29,6 @@ namespace Enemies.StateMachine
                return;
            
            State nextState = _currentState.GetNextState();
-           print($"nextState: {nextState}");
            
            if (nextState is not null) 
                Transit(nextState);

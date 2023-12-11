@@ -1,8 +1,9 @@
 using System.Collections.Generic;
-using UnityEngine;
+using Enemies.StateMachine.Transiotions;
 using Players;
+using UnityEngine;
 
-namespace Enemies.StateMachine
+namespace Enemies.StateMachine.States
 {
     public abstract class State : MonoBehaviour
     {
@@ -27,7 +28,7 @@ namespace Enemies.StateMachine
 
         public void Exit()
         {
-            if (enabled == false)
+            if (enabled)
                 foreach (Transition transition in _transitions)
                     transition.enabled = false;
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Players
 {
-    [RequireComponent(typeof(Health), typeof(Animator), typeof(Attacker))]
+    [RequireComponent(typeof(Health), typeof(PlayerAnimator), typeof(Attacker))]
     [RequireComponent(typeof(Wallet))]
     public class Player : MonoBehaviour
     {
@@ -14,14 +14,14 @@ namespace Players
         private Weapon _currentWeapon;
         private Attacker _attacker;
         private Wallet _wallet;
-        private Animator _animator;
+        private PlayerAnimator _playerAnimator;
         private Enemy _currentTarget;
         private RayCaster _rayCaster;
 
         private void Awake()
         {
             _health = GetComponent<Health>();
-            _animator = GetComponent<Animator>();
+            _playerAnimator = GetComponent<PlayerAnimator>();
             _attacker = GetComponent<Attacker>();
             _wallet = GetComponent<Wallet>();
             _rayCaster = FindObjectOfType<RayCaster>();
