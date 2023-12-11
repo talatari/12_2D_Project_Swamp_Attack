@@ -17,13 +17,14 @@ namespace Players
         private PlayerAnimator _playerAnimator;
         private Enemy _currentTarget;
         private RayCaster _rayCaster;
+        private bool _canShoot = true;
 
         private void Awake()
         {
             _health = GetComponent<Health>();
-            _playerAnimator = GetComponent<PlayerAnimator>();
             _attacker = GetComponent<Attacker>();
             _wallet = GetComponent<Wallet>();
+            _playerAnimator = GetComponent<PlayerAnimator>();
             _rayCaster = FindObjectOfType<RayCaster>();
             _currentWeapon = _weapons[_weapons.Count - 1];
         }
@@ -32,12 +33,16 @@ namespace Players
         {
             _health.PlayerDestroy += OnDestroy;
             _rayCaster.HaveTarget += OnShoot;
+            _playerAnimator.AttackAnimationEnd += OnStopShoot;
+            _currentWeapon.ShootedWeapon += OnCanShoot;
         }
 
         private void OnDisable()
         {
             _health.PlayerDestroy -= OnDestroy;
             _rayCaster.HaveTarget -= OnShoot;
+            _playerAnimator.AttackAnimationEnd -= OnStopShoot;
+            _currentWeapon.ShootedWeapon -= OnCanShoot;
         }
 
         private void OnDestroy() => 
@@ -45,14 +50,26 @@ namespace Players
 
         public void TakeDamage(int damage) =>
             _health.TakeDamage(damage);
-        
+
         public void GiveReward(int coins) => 
             _wallet.AddCoins(coins);
-        
-        public void GiveDamage() => 
-            _attacker.PlayerGiveDamage(_currentTarget);
 
-        private void OnShoot(Vector3 target) => 
-            _attacker.Shoot(_currentWeapon, target);
+        private void OnShoot(Vector3 target)
+        {
+            if (_canShoot)
+            {
+                _canShoot = false;
+                _playerAnimator.StartShoot();
+                _attacker.Shoot(_currentWeapon, target);
+            }
+        }
+
+        private void OnStopShoot()
+        {
+            
+        }
+
+        private void OnCanShoot() =>
+            _canShoot = true;
     }
 }

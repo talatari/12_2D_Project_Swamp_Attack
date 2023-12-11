@@ -14,12 +14,9 @@ namespace Players
             _animator = GetComponent<Animator>();
 
         public void StartShoot() => 
-            _animator.SetBool(AnimatorParameters.PlayerShoot, true);
+            _animator.SetTrigger(AnimatorParameters.PlayerShoot);
 
-        public void StopShoot() => 
-            _animator.SetBool(AnimatorParameters.PlayerShoot, false);
-    
-        public void AttackAnimationEnded() => 
+        public void ShootAnimationEnded() => 
             AttackAnimationEnd?.Invoke();
     }
 }

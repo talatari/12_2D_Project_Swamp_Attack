@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Players
@@ -11,7 +12,9 @@ namespace Players
         [SerializeField] private bool _isBuyed;
         [SerializeField] private Sprite _icon;
         [SerializeField] protected Bullet Bullet;
-
+        
+        public abstract event Action ShootedWeapon;
+        
         public abstract void Shoot(Transform shootPoint, Vector3 target);
     }
 }
