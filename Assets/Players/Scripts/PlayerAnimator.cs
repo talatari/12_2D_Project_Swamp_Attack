@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Players
@@ -8,15 +7,10 @@ namespace Players
     {
         private Animator _animator;
     
-        public event Action AttackAnimationEnd;
-
         private void Awake() => 
             _animator = GetComponent<Animator>();
 
         public void StartShoot() => 
             _animator.SetTrigger(AnimatorParameters.PlayerShoot);
-
-        public void ShootAnimationEnded() => 
-            AttackAnimationEnd?.Invoke();
     }
 }
