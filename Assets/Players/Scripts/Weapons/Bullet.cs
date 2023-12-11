@@ -8,15 +8,14 @@ namespace Players
     {
         [SerializeField] private float _speedBullet;
 
-        private float _liveTime = 3f;
+        private float _liveTime = 1f;
         private float _elapsedTime;
         private Rigidbody2D _rigidbody2D;
         private int _damage;
 
-        private void Start()
+        private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _rigidbody2D.velocity = transform.forward * _speedBullet;
             Destroy(gameObject, _liveTime);
         }
 
@@ -31,5 +30,10 @@ namespace Players
 
         public void SetDamage(int damage) => 
             _damage = damage;
+
+        public void SetTargetPosition(Vector3 targetPosition)
+        {
+            _rigidbody2D.velocity = (targetPosition - transform.position).normalized * _speedBullet;
+        }
     }
 }
