@@ -8,7 +8,7 @@ namespace Players
     {
         [SerializeField] private float _speedBullet;
 
-        private float _liveTime = 1f;
+        private float _liveTime = 100f;
         private float _elapsedTime;
         private Rigidbody2D _rigidbody2D;
         private int _damage;

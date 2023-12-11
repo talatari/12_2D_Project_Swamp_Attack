@@ -12,6 +12,8 @@ namespace Players
         {
             if (coins > 0)
                 _coins += coins;
+            
+            print($"AddCoins. Wallet: {_coins}");
         }
 
         public void SpendCoins(int coins)
@@ -21,6 +23,8 @@ namespace Players
             
             if (_coins - coins >= 0)
                 _coins -= coins;
+            
+            print($"SpendCoins. Wallet: {_coins}");
         }
     }
 }
