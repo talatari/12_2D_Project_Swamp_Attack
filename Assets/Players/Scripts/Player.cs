@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Players
 {
     [RequireComponent(typeof(Health), typeof(Animator), typeof(Attacker))]
+    [RequireComponent(typeof(Wallet))]
     public class Player : MonoBehaviour
     {
         [SerializeField] private List<Weapon> _weapons;
@@ -12,6 +13,7 @@ namespace Players
         private Health _health;
         private Weapon _currentWeapon;
         private Attacker _attacker;
+        private Wallet _wallet;
         private Animator _animator;
         private Enemy _currentTarget;
         private RayCaster _rayCaster;
@@ -21,6 +23,7 @@ namespace Players
             _health = GetComponent<Health>();
             _animator = GetComponent<Animator>();
             _attacker = GetComponent<Attacker>();
+            _wallet = GetComponent<Wallet>();
             _rayCaster = FindObjectOfType<RayCaster>();
             _currentWeapon = _weapons[_weapons.Count - 1];
         }
@@ -42,7 +45,10 @@ namespace Players
 
         public void TakeDamage(int damage) =>
             _health.TakeDamage(damage);
-
+        
+        public void GiveReward(int coins) => 
+            _wallet.AddCoins(coins);
+        
         public void GiveDamage() => 
             _attacker.PlayerGiveDamage(_currentTarget);
 
