@@ -56,6 +56,9 @@ namespace Players
 
         private void OnShoot(Vector3 target)
         {
+            print("OnShoot");
+            print($"_canShoot: {_canShoot}");
+            
             if (_canShoot)
             {
                 _canShoot = false;
@@ -66,10 +69,12 @@ namespace Players
 
         private void OnStopShoot()
         {
-            
+            // _canShoot = true;
         }
 
-        private void OnCanShoot() =>
+        private void OnCanShoot()
+        {
             _canShoot = true;
+        }
     }
 }

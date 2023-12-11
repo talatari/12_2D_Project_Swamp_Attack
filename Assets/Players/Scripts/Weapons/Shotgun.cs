@@ -30,7 +30,6 @@ namespace Players
                     }
                 
                 ShootedWeapon?.Invoke();
-                print("ShootedWeapon?.Invoke();");
             }
         }
     }
