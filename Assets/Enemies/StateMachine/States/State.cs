@@ -29,8 +29,12 @@ namespace Enemies.StateMachine.States
         public void Exit()
         {
             if (enabled)
+            {
                 foreach (Transition transition in _transitions)
                     transition.enabled = false;
+                
+                enabled = false;
+            }
         }
 
         public State GetNextState()

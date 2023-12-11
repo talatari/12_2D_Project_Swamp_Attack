@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Players
@@ -8,6 +9,8 @@ namespace Players
             new (-0.5f, -0.1f, 0.0f), new (0.1f, -0.4f, 0.0f), new (0.0f, 0.4f, 0.0f), new (0.3f, 0.1f, 0.0f) };
         private float _elapsedTime;
 
+        public override event Action ShootedWeapon;
+        
         private void Update() => 
             _elapsedTime -= Time.deltaTime;
 
@@ -17,7 +20,7 @@ namespace Players
             {
                 _elapsedTime = ShootDelay;
                 Vector3 position = shootPoint.position;
-
+                
                 if (target.x < position.x)
                     for (var i = 0; i < _offsets.Length; i++)
                     {
@@ -25,6 +28,9 @@ namespace Players
                         bullet.SetDamage(Damage);
                         bullet.SetTargetPosition(target + _offsets[i]);
                     }
+                
+                ShootedWeapon?.Invoke();
+                print("ShootedWeapon?.Invoke();");
             }
         }
     }
