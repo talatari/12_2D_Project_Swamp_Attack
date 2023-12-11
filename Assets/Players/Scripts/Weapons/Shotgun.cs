@@ -19,7 +19,7 @@ namespace Players
                 Vector3 position = shootPoint.position;
 
                 if (target.x < position.x)
-                    for (int i = 0; i < _offsets.Length; i++)
+                    for (var i = 0; i < _offsets.Length; i++)
                     {
                         Bullet bullet = Instantiate(Bullet, position, Quaternion.identity);
                         bullet.SetDamage(Damage);
