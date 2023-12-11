@@ -4,7 +4,7 @@ namespace Enemies.StateMachine.Transiotions
     {
         private void Update()
         {
-            if (Player is null)
+            if (Player == null)
                 NeedTransit = true;
         }
     }

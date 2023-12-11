@@ -25,18 +25,18 @@ namespace Enemies.StateMachine
 
         private void Update()
         {
-           if (_currentState is null)
+           if (_currentState == null)
                return;
            
            State nextState = _currentState.GetNextState();
            
-           if (nextState is not null) 
+           if (nextState != null) 
                Transit(nextState);
         }
 
         private void Reset(State startState)
         {
-            if (startState is not null)
+            if (startState != null)
             {
                 _currentState = startState;
                 _currentState.Enter(_player);
@@ -45,8 +45,8 @@ namespace Enemies.StateMachine
 
         private void Transit(State nextState)
         {
-            if (_currentState is not null)
-                _currentState?.Exit();
+            if (_currentState != null)
+                _currentState.Exit();
             
             _currentState = nextState;
             _currentState.Enter(_player);
