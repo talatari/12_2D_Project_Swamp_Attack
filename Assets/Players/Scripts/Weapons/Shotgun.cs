@@ -23,7 +23,7 @@ namespace Players
                     {
                         Bullet bullet = Instantiate(Bullet, position, Quaternion.identity);
                         bullet.SetDamage(Damage);
-                        // bullet.SetTargetPosition(target + _offsets[i]);
+                        bullet.SetTargetPosition(target + _offsets[i]);
                     }
             }
         }
