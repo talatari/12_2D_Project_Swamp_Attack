@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Enemies.StateMachine.States
+namespace Enemies
 {
     [RequireComponent(typeof(EnemyAnimator))]
     public class Celebration : State

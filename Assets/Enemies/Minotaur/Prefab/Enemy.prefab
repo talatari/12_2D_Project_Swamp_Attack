@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45b42fb93c1f42e8956ce1483810b9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
+  _maxHealth: 8
 --- !u!114 &5163554179279916380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 5348306152647700625}
-  _damage: 5
+  _damage: 1
   _attackDelay: 1
 --- !u!114 &5348306152647700625
 MonoBehaviour:
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501453780326936753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34aa51b8be6a403792f78ed5e8c38c3a, type: 3}
   m_Name: 

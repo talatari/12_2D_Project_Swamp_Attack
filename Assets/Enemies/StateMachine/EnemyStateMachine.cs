@@ -1,8 +1,7 @@
-using Enemies.StateMachine.States;
 using Players;
 using UnityEngine;
 
-namespace Enemies.StateMachine
+namespace Enemies
 {
     [RequireComponent(typeof(Enemy))]
     public class EnemyStateMachine : MonoBehaviour

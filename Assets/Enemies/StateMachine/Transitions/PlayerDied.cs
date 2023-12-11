@@ -1,4 +1,4 @@
-namespace Enemies.StateMachine.Transiotions
+namespace Enemies
 {
     public class PlayerDied : Transition
     {
