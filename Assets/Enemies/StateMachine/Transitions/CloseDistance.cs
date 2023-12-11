@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Enemies.StateMachine.Transiotions
+namespace Enemies
 {
     public class CloseDistance : Transition
     {

@@ -1,16 +1,15 @@
 using System.Collections.Generic;
-using Enemies.StateMachine.Transiotions;
 using Players;
 using UnityEngine;
 
-namespace Enemies.StateMachine.States
+namespace Enemies
 {
     public abstract class State : MonoBehaviour
     {
         [SerializeField] private List<Transition> _transitions;
         
         protected Player Player { get; set; }
-
+        
         public void Enter(Player player)
         {
             if (enabled == false)

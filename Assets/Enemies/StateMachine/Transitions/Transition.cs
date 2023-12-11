@@ -1,8 +1,7 @@
-using Enemies.StateMachine.States;
 using Players;
 using UnityEngine;
 
-namespace Enemies.StateMachine.Transiotions
+namespace Enemies
 {
     public abstract class Transition : MonoBehaviour
     {
@@ -14,8 +13,10 @@ namespace Enemies.StateMachine.Transiotions
         
         public bool NeedTransit { get; protected set; }
         
-        public void Init(Player player) => 
+        public void Init(Player player)
+        {
             Player = player;
+        }
 
         private void OnEnable() => 
             NeedTransit = false;

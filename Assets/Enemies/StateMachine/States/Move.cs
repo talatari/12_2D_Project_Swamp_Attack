@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Enemies.StateMachine.States
+namespace Enemies
 {
     public class Move : State
     {

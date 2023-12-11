@@ -15,6 +15,9 @@ namespace Enemies
         
         public void StartCelebration() => 
             _animator.SetTrigger(AnimatorParameters.EnemyCelebration);
+        
+        public void StartDie() => 
+            _animator.SetTrigger(AnimatorParameters.EnemyDie);
 
         public void StopPlayback() => 
             _animator.StartPlayback();
