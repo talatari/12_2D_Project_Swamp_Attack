@@ -36,6 +36,7 @@ namespace Players
         {
             _health.PlayerDie += OnPlayerDie;
             _attacker.CantShoot += OnCantShoot;
+            _wallet.CoinsChanged += OnCoinsChanged;
             _rayCaster.HaveTarget += OnShoot;
             _currentWeapon.ShootedWeapon += OnCanShoot;
         }
@@ -46,10 +47,16 @@ namespace Players
             
             _health.PlayerDie -= OnPlayerDie;
             _attacker.CantShoot -= OnCantShoot;
+            _wallet.CoinsChanged -= OnCoinsChanged;
             _rayCaster.HaveTarget -= OnShoot;
             _currentWeapon.ShootedWeapon -= OnCanShoot;
             
             _playerAnimator.StartDeathWithGun();
+        }
+
+        private void OnCoinsChanged(int coins)
+        {
+            // TODO: реализовать обновления количества монет в интерфейсе
         }
 
         public void TakeDamage(int damage) =>

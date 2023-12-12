@@ -7,7 +7,7 @@ namespace UI
 {
     public class PlayerHealthBar : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _tmpText;
+        [SerializeField] private TextMeshProUGUI _tmpText;
         [SerializeField] private Image _fillBar;
         [SerializeField] private Gradient _gradient;
         

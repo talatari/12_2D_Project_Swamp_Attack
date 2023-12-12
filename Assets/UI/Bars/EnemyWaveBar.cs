@@ -8,15 +8,15 @@ namespace UI
 {
     public class EnemyWaveBar : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _waveEnemyCountText;
+        [SerializeField] private TextMeshProUGUI _waveEnemyCountText;
         [SerializeField] private TextMeshProUGUI _waveNumberText;
         [SerializeField] private Image _fillBar;
         [SerializeField] private Gradient _gradient;
 
         private Spawner _spawner;
+        private Coroutine _coroutineFadeEffectAlphaText;
         private string _waveText = "Wave ";
         private string _bossText = "BOSS";
-        private Coroutine _coroutineFadeEffectAlphaText;
         private float _duration = 2f;
 
         private void Awake()

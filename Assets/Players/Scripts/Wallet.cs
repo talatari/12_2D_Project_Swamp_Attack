@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Players
@@ -8,10 +9,16 @@ namespace Players
 
         public int Coins => _coins;
         
+        public event Action<int> CoinsChanged;
+        
         public void AddCoins(int coins)
         {
             if (coins > 0)
+            {
                 _coins += coins;
+                CoinsChanged?.Invoke(coins);
+            }
+                
             
             // print($"AddCoins. Wallet: {_coins}");
         }
@@ -20,9 +27,13 @@ namespace Players
         {
             if (coins <= 0) 
                 return;
-            
+
             if (_coins - coins >= 0)
+            {
                 _coins -= coins;
+                CoinsChanged?.Invoke(coins);
+            }
+                
             
             // print($"SpendCoins. Wallet: {_coins}");
         }
