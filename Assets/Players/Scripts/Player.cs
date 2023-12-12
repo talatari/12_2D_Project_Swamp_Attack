@@ -35,6 +35,7 @@ namespace Players
         private void OnEnable()
         {
             _health.PlayerDie += OnPlayerDie;
+            _attacker.CantShoot += OnCantShoot;
             _rayCaster.HaveTarget += OnShoot;
             _currentWeapon.ShootedWeapon += OnCanShoot;
         }
@@ -44,6 +45,7 @@ namespace Players
             PlayerDie?.Invoke();
             
             _health.PlayerDie -= OnPlayerDie;
+            _attacker.CantShoot -= OnCantShoot;
             _rayCaster.HaveTarget -= OnShoot;
             _currentWeapon.ShootedWeapon -= OnCanShoot;
             
@@ -56,22 +58,23 @@ namespace Players
         public void GiveReward(int coins) => 
             _wallet.AddCoins(coins);
 
+        private void OnCantShoot()
+        {
+            _playerAnimator.StartShoot();
+                
+            if (_soundShoot != null)
+                _soundShoot.Play();
+                
+            if (_soundReloadGun != null)
+                _soundReloadGun?.Play();
+            
+            _canShoot = false;
+        }
+
         private void OnShoot(Vector3 target)
         {
             if (_canShoot)
-            {
-                _playerAnimator.StartShoot();
-                
                 _attacker.Shoot(_currentWeapon, target);
-                
-                if (_soundShoot != null)
-                    _soundShoot.Play();
-                
-                if (_soundReloadGun != null)
-                    _soundReloadGun?.Play();
-                
-                _canShoot = false;
-            }
         }
 
         private void OnCanShoot() => 
