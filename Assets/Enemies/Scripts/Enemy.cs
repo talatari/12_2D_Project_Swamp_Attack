@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Players;
 
@@ -14,32 +15,34 @@ namespace Enemies
 
         public Player Player => _player;
 
-        private void Awake()
-        {
+        public event Action<Enemy> EnemyDie; 
+        
+        private void Awake() => 
             _health = GetComponent<Health>();
-            _player = FindObjectOfType<Player>();
-        }
 
-        private void OnEnable()
+        public void Init(Player player)
         {
+            _player = player;
             _player.PlayerDie += OnPlayerDie;
             _health.EnemyDie += OnEnemyDie;
         }
-        
+
+        public void TakeDamage(int damage) => 
+            _health.TakeDamage(damage);
+
         private void OnEnemyDie()
         {
             _player.GiveReward(_coins);
+            
+            EnemyDie?.Invoke(this);
             
             _player.PlayerDie -= OnPlayerDie;
             _health.EnemyDie -= OnEnemyDie;
             
             Destroy(gameObject);
         }
-        
+
         private void OnPlayerDie() =>
             _playerDied.Transit();
-
-        public void TakeDamage(int damage) => 
-            _health.TakeDamage(damage);
     }
 }

@@ -26,7 +26,7 @@ namespace Enemies
         {
             _currentHealth = Mathf.Clamp(_currentHealth -= damage, _minHealth, _maxHealth);
         
-            print($"Enemies.Health.CurrentHealth: {_currentHealth}");
+            // print($"Enemies.Health.CurrentHealth: {_currentHealth}");
             
             if (_currentHealth <= _minHealth)
                 EnemyDie?.Invoke();

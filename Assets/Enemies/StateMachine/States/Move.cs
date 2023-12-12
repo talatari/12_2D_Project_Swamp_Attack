@@ -8,7 +8,7 @@ namespace Enemies
 
         private void Update()
         {
-            if (Player is not null)
+            if (Player != null)
                 transform.position = Vector2.MoveTowards(
                     transform.position, Player.transform.position, _speed * Time.deltaTime);
         }

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 7078586933248835706}
   - component: {fileID: 3180088296071839027}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Minotaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 3688034348545606263}
-  _speed: 10
+  _speed: 1
 --- !u!114 &3688034348545606263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 5348306152647700625}
-  _damage: 100
+  _damage: 10
   _attackDelay: 1
 --- !u!114 &5348306152647700625
 MonoBehaviour:
