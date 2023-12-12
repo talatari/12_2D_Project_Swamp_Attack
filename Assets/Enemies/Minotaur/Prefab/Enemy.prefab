@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coins: 2
-  _player: {fileID: 0}
+  _playerDied: {fileID: 5348306152647700625}
 --- !u!114 &980436438907599451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 3688034348545606263}
-  _speed: 2.5
+  _speed: 10
 --- !u!114 &3688034348545606263
 MonoBehaviour:
   m_ObjectHideFlags: 0

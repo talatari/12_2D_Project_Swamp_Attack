@@ -12,5 +12,8 @@ namespace Players
 
         public void StartShoot() => 
             _animator.SetTrigger(AnimatorParameters.PlayerShootGun);
+        
+        public void StartDeathWithGun() =>
+            _animator.SetTrigger(AnimatorParameters.PlayerDeathWithGun);
     }
 }
