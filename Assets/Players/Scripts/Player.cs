@@ -9,6 +9,8 @@ namespace Players
     public class Player : MonoBehaviour
     {
         [SerializeField] private List<Weapon> _weapons;
+        [SerializeField] private AudioSource _soundShoot;
+        [SerializeField] private AudioSource _soundReloadGun;
 
         private Health _health;
         private Weapon _currentWeapon;
@@ -60,6 +62,8 @@ namespace Players
             {
                 _playerAnimator.StartShoot();
                 _attacker.Shoot(_currentWeapon, target);
+                _soundShoot.Play();
+                _soundReloadGun.Play();
                 _canShoot = false;
             }
         }
