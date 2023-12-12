@@ -61,9 +61,15 @@ namespace Players
             if (_canShoot)
             {
                 _playerAnimator.StartShoot();
+                
                 _attacker.Shoot(_currentWeapon, target);
-                _soundShoot.Play();
-                _soundReloadGun.Play();
+                
+                if (_soundShoot != null)
+                    _soundShoot.Play();
+                
+                if (_soundReloadGun != null)
+                    _soundReloadGun?.Play();
+                
                 _canShoot = false;
             }
         }

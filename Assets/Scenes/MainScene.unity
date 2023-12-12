@@ -449,6 +449,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dfa2c7c880742cab8093ef5450b042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &2014212467 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7166219105143235447, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
+  m_PrefabInstance: {fileID: 6683627917548634256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1614735311566155465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,6 +625,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5233991361602472920, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
+      propertyPath: _soundShoot
+      value: 
+      objectReference: {fileID: 2014212467}
     - target: {fileID: 6304789768190940694, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
       propertyPath: m_Name
       value: Player+
