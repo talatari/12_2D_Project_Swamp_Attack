@@ -9,7 +9,8 @@ namespace UI
     {
         [SerializeField] private TMP_Text _tmpText;
         [SerializeField] private Image _fillBar;
-    
+        [SerializeField] private Gradient _gradient;
+        
         private Health _playerHealth;
 
         private void Awake()
@@ -25,6 +26,7 @@ namespace UI
         {
             _tmpText.text = currentHealth + " / " + maxHealth;
             _fillBar.fillAmount = (float) currentHealth / maxHealth;
+            _fillBar.color = _gradient.Evaluate(_fillBar.fillAmount);
         }
     }
 }
