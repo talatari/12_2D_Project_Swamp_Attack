@@ -10,7 +10,7 @@ namespace Enemies
         private int _currentHealth;
         private int _minHealth = 0;
 
-        public event Action EnemyDestroy;
+        public event Action EnemyDie;
         public event Action<int, int> HealthChanged;
 
         public int MaxHealth => _maxHealth;
@@ -26,10 +26,10 @@ namespace Enemies
         {
             _currentHealth = Mathf.Clamp(_currentHealth -= damage, _minHealth, _maxHealth);
         
-            // print($"Enemies.Health.CurrentHealth: {_currentHealth}");
+            print($"Enemies.Health.CurrentHealth: {_currentHealth}");
             
             if (_currentHealth <= _minHealth)
-                EnemyDestroy?.Invoke();
+                EnemyDie?.Invoke();
         
             HealthChanged?.Invoke(_currentHealth, _maxHealth);
         }

@@ -13,10 +13,8 @@ namespace Enemies
         
         public bool NeedTransit { get; protected set; }
         
-        public void Init(Player player)
-        {
+        public void Init(Player player) => 
             Player = player;
-        }
 
         private void OnEnable() => 
             NeedTransit = false;

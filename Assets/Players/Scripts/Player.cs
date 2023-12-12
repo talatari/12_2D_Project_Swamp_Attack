@@ -1,11 +1,11 @@
+using System;
 using System.Collections.Generic;
-using Enemies;
 using UnityEngine;
 
 namespace Players
 {
-    [RequireComponent(typeof(Health), typeof(PlayerAnimator), typeof(Attacker))]
-    [RequireComponent(typeof(Wallet))]
+    [RequireComponent(typeof(Health), typeof(PlayerAnimator))]
+    [RequireComponent(typeof(Wallet), typeof(Attacker))]
     public class Player : MonoBehaviour
     {
         [SerializeField] private List<Weapon> _weapons;
@@ -15,9 +15,10 @@ namespace Players
         private Attacker _attacker;
         private Wallet _wallet;
         private PlayerAnimator _playerAnimator;
-        private Enemy _currentTarget;
         private RayCaster _rayCaster;
         private bool _canShoot = true;
+
+        public event Action PlayerDie;
 
         private void Awake()
         {
@@ -31,20 +32,21 @@ namespace Players
 
         private void OnEnable()
         {
-            _health.PlayerDestroy += OnDestroy;
+            _health.PlayerDie += OnPlayerDie;
             _rayCaster.HaveTarget += OnShoot;
             _currentWeapon.ShootedWeapon += OnCanShoot;
         }
 
-        private void OnDisable()
+        private void OnPlayerDie()
         {
-            _health.PlayerDestroy -= OnDestroy;
+            PlayerDie?.Invoke();
+            
+            _health.PlayerDie -= OnPlayerDie;
             _rayCaster.HaveTarget -= OnShoot;
             _currentWeapon.ShootedWeapon -= OnCanShoot;
+            
+            _playerAnimator.StartDeathWithGun();
         }
-
-        private void OnDestroy() => 
-            Destroy(gameObject);
 
         public void TakeDamage(int damage) =>
             _health.TakeDamage(damage);

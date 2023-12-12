@@ -10,7 +10,7 @@ namespace Players
         private int _currentHealth;
         private int _minHealth = 0;
 
-        public event Action PlayerDestroy;
+        public event Action PlayerDie;
         public event Action<int, int> HealthChanged;
 
         public int MaxHealth => _maxHealth;
@@ -34,7 +34,7 @@ namespace Players
             _currentHealth = Mathf.Clamp(_currentHealth -= damage, _minHealth, _maxHealth);
         
             if (_currentHealth <= _minHealth)
-                PlayerDestroy?.Invoke();
+                PlayerDie?.Invoke();
         
             HealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
