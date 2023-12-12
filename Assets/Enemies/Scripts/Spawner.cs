@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Players;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -16,8 +18,11 @@ namespace Enemies
         private int _countSpawned;
         private float _timeAfterLastSpawn;
 
+        public event Action<int, int> WaveChanged;
+        public event Action<int> WaveStarted;
+        
         private void Start() => 
-            SetWave(_currentWaveNumber);
+            StartWave(_currentWaveNumber);
 
         private void Update()
         {
@@ -28,9 +33,10 @@ namespace Enemies
             
             if (_timeAfterLastSpawn > _currentWave.Delay)
             {
-                Spawn();
-
                 _countSpawned++;
+                
+                Spawn();
+                
                 _timeAfterLastSpawn = 0;
             }
 
@@ -41,8 +47,11 @@ namespace Enemies
             }
         }
 
-        private void SetWave(int index) => 
+        private void StartWave(int index)
+        {
             _currentWave = _waves[index];
+            WaveStarted?.Invoke(index + 1);
+        }
 
         private void Spawn()
         {
@@ -50,14 +59,18 @@ namespace Enemies
             Enemy enemy = Instantiate(_currentWave.EnemyPrefab, spawnPoint.position, Quaternion.identity, spawnPoint);
             enemy.Init(_player);
             enemy.EnemyDie += OnEnemyDie;
+            
             _enemies.Enqueue(enemy);
+            WaveChanged?.Invoke(_enemies.Count, _waves[_currentWaveNumber].Count);
         }
 
         private void OnEnemyDie(Enemy enemy)
         {
             enemy.EnemyDie -= OnEnemyDie;
-            _enemies.Dequeue();
             
+            _enemies.Dequeue();
+            WaveChanged?.Invoke(_enemies.Count, _waves[_currentWaveNumber].Count);
+
             TryRunNextWave();
         }
 
@@ -65,7 +78,7 @@ namespace Enemies
         {
             if (_enemies.Count == 0 && _currentWave == null)
                 if (_currentWaveNumber < _waves.Count - 1)
-                    SetWave(++_currentWaveNumber);
+                    StartWave(++_currentWaveNumber);
         }
 
         private Transform GetSpawnPoint() => 
