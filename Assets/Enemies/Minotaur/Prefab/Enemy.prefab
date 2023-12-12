@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 5348306152647700625}
-  _damage: 1
+  _damage: 100
   _attackDelay: 1
 --- !u!114 &5348306152647700625
 MonoBehaviour:

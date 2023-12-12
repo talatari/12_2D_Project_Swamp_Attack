@@ -11,6 +11,6 @@ namespace Players
             _animator = GetComponent<Animator>();
 
         public void StartShoot() => 
-            _animator.SetTrigger(AnimatorParameters.PlayerShoot);
+            _animator.SetTrigger(AnimatorParameters.PlayerShootGun);
     }
 }
