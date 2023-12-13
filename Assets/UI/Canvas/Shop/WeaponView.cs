@@ -23,8 +23,11 @@ namespace UI
             _sellButton.onClick.AddListener(TryLockWeapon);
         }
 
-        private void OnDisable() => 
-            _sellButton.onClick.RemoveAllListeners();
+        private void OnDisable()
+        {
+            _sellButton.onClick.RemoveListener(SellWeapon);
+            _sellButton.onClick.RemoveListener(TryLockWeapon);
+        }
 
         public void Render(Weapon weapon)
         {
@@ -34,13 +37,13 @@ namespace UI
             _price.text = weapon.Price.ToString();
         }
 
+        private void SellWeapon() => 
+            SellButtonClick?.Invoke(_weapon, this);
+
         private void TryLockWeapon()
         {
             if (_weapon.IsBuyed)
                 _sellButton.interactable = false;
         }
-
-        private void SellWeapon() => 
-            SellButtonClick?.Invoke(_weapon, this);
     }
 }
