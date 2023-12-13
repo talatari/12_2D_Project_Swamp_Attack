@@ -789,25 +789,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3846359616829514480}
     m_Modifications:
+    - target: {fileID: 128282941878569387, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2767070441649144139, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -1253
       objectReference: {fileID: 0}
     - target: {fileID: 2767070441649144139, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 3236771861072616414, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3236771861072616414, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3999836821757652365, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
       propertyPath: m_Name
       value: Shop_+
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999836821757652365, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5650363310780288610, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
       propertyPath: m_Pivot.x
@@ -891,15 +899,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5955867383783589652, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5955867383783589652, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7370003657245583262, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
+      propertyPath: _weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 4067189088799888276, guid: a7596440abe024b54bae2742738d8fac, type: 3}
+    - target: {fileID: 7370003657245583262, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
+      propertyPath: _weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1079031951700316987, guid: 2eab1bd9ed7d044f8bbfcd2f92b47d45, type: 3}
     - target: {fileID: 8126415738289703428, guid: 1b2598d07c6d04e9788cd7ad169e2724, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -19,14 +19,12 @@ namespace Players
         public int Price => _price;
         public bool IsBuyed => _isBuyed;
         public Sprite Sprite => _sprite;
-        
+
         public abstract void UseWeapon(Transform shootPoint, Vector3 target);
-        
+
         public abstract void UseWeapon();
 
-        public void Buy()
-        {
-            
-        }
+        public void Buy() => 
+            _isBuyed = true;
     }
 }
