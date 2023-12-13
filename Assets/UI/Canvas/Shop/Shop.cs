@@ -20,13 +20,13 @@ namespace UI
         private void OnEnable()
         {
             Time.timeScale = 0;
-            _player.SetCantShoot();
+            _player.SetCantAttack();
         }
 
         private void OnDisable()
         {
             Time.timeScale = 1;
-            _player.SetCantShoot();
+            _player.SetCantAttack();
         }
 
         private void AddWeapon(Weapon weapon)

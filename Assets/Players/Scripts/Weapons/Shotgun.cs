@@ -8,7 +8,7 @@ namespace Players
         private Vector3[] _offsets = { 
             new (-0.5f, -0.1f, 0.0f), new (0.1f, -0.4f, 0.0f), new (0.0f, 0.4f, 0.0f), new (0.3f, 0.1f, 0.0f) };
         private float _elapsedTime;
-        private float _shootDelayDone = 0.1f;
+        private float _attackDelayDone = 0.1f;
         
         public override event Action UsedWeapon;
         
@@ -16,15 +16,15 @@ namespace Players
         {
             _elapsedTime -= Time.deltaTime;
             
-            if (_elapsedTime < _shootDelayDone)
+            if (_elapsedTime < _attackDelayDone)
                 UsedWeapon?.Invoke();
         }
 
         public override void UseWeapon(Transform shootPoint, Vector3 target)
         {
-            if (_elapsedTime < _shootDelayDone)
+            if (_elapsedTime < _attackDelayDone)
             {
-                _elapsedTime = ShootDelay;
+                _elapsedTime = AttackDelay;
                 Vector3 position = shootPoint.position;
                 
                 for (var i = 0; i < _offsets.Length; i++)

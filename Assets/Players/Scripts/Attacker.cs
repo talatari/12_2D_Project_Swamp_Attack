@@ -5,18 +5,21 @@ namespace Players
 {
     public class Attacker : MonoBehaviour
     {
-        [SerializeField] private Transform _shootPoint;
+        [SerializeField] private Transform _attackPoint;
 
-        public event Action CantShoot;
+        public event Action CantAttack;
         
-        public void Shoot(Weapon weapon, Vector3 target)
+        public void Attack(Weapon weapon, Vector3 target)
         {
-            if (target.x < _shootPoint.position.x)
+            if (target.x < _attackPoint.position.x)
             {
-                weapon.UseWeapon(_shootPoint, target);
+                if (weapon.IsMeleeWeapon == false)
+                    weapon.UseWeapon(_attackPoint, target);
+                else
+                    weapon.UseWeapon();
                 
-                CantShoot?.Invoke();
+                CantAttack?.Invoke();
             }
-        } 
+        }
     }
 }

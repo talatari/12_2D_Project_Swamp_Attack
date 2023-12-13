@@ -5,11 +5,27 @@ namespace Players
 {
     public class Axe : Weapon
     {
+        private float _elapsedTime;
+        private float _attackDelayDone = 0.1f;
+        
         public override event Action UsedWeapon;
 
+        private void Update()
+        {
+            _elapsedTime -= Time.deltaTime;
+            
+            if (_elapsedTime < _attackDelayDone)
+                UsedWeapon?.Invoke();
+        }
+        
         public override void UseWeapon()
         {
-            print("Use axe");
+            if (_elapsedTime < _attackDelayDone)
+            {
+                _elapsedTime = AttackDelay;
+                
+                print("Use Axe");
+            }
         }
 
         public override void UseWeapon(Transform shootPoint, Vector3 target) { }
