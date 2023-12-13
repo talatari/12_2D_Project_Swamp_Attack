@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace UI.Shop
+namespace UI
 {
     public class ShopInteract : MonoBehaviour
     {
