@@ -33,6 +33,7 @@ namespace UI
         {
             WeaponView weaponView = Instantiate(_weaponViewPrefab, _weaponContainer.transform);
             weaponView.Render(weapon);
+            weaponView.SellButtonClick += OnSellButtonClick;
         }
 
         private void OnSellButtonClick(Weapon weapon, WeaponView weaponView) => 
@@ -44,6 +45,7 @@ namespace UI
             {
                 _player.BuyWeapon(weapon);
                 weapon.Buy();
+                weaponView.SellButtonClick -= OnSellButtonClick;
             }
         }
     }
