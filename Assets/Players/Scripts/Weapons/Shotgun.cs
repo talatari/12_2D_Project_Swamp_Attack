@@ -10,17 +10,17 @@ namespace Players
         private float _elapsedTime;
         private float _shootDelayDone = 0.1f;
         
-        public override event Action ShootedWeapon;
+        public override event Action UsedWeapon;
         
         private void Update()
         {
             _elapsedTime -= Time.deltaTime;
             
             if (_elapsedTime < _shootDelayDone)
-                ShootedWeapon?.Invoke();
+                UsedWeapon?.Invoke();
         }
 
-        public override void Shoot(Transform shootPoint, Vector3 target)
+        public override void UseWeapon(Transform shootPoint, Vector3 target)
         {
             if (_elapsedTime < _shootDelayDone)
             {
@@ -35,5 +35,7 @@ namespace Players
                 }
             }
         }
+
+        public override void UseWeapon() { }
     }
 }

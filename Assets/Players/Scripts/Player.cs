@@ -27,6 +27,8 @@ namespace Players
 
         public event Action PlayerDie;
 
+        public int Coins => _wallet.Coins;
+        
         private void Awake()
         {
             _health = GetComponent<Health>();
@@ -50,7 +52,7 @@ namespace Players
             _wallet.CoinsChanged += OnCoinsChanged;
             _rayCaster.HaveTarget += OnShoot;
             _onOffSounds.SwithSounds += OnSetPlaySounds;
-            _currentWeapon.ShootedWeapon += OnCanShoot;
+            _currentWeapon.UsedWeapon += OnCanShoot;
         }
 
         private void OnPlayerDie()
@@ -63,7 +65,7 @@ namespace Players
             _wallet.CoinsChanged -= OnCoinsChanged;
             _rayCaster.HaveTarget -= OnShoot;
             _onOffSounds.SwithSounds -= OnSetPlaySounds;
-            _currentWeapon.ShootedWeapon -= OnCanShoot;
+            _currentWeapon.UsedWeapon -= OnCanShoot;
             
             _playerAnimator.StartDeathWithGun();
         }
@@ -74,6 +76,12 @@ namespace Players
         public void GiveReward(int coins) => 
             _wallet.AddCoins(coins);
 
+        public void BuyWeapon(Weapon weapon)
+        {
+            _wallet.SpendCoins(weapon.Price);
+            _weapons.Add(weapon);
+        }
+        
         private void OnSetPlaySounds() => 
             _canPlaySounds = _canPlaySounds ? false : true;
 
