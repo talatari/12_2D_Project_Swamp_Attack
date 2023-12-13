@@ -425,7 +425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1079031951700316987, guid: 2eab1bd9ed7d044f8bbfcd2f92b47d45, type: 3}
       propertyPath: ShootDelay
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1079031951700316987, guid: 2eab1bd9ed7d044f8bbfcd2f92b47d45, type: 3}
       propertyPath: SpeedShoot
@@ -433,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3584570841525068505, guid: 2eab1bd9ed7d044f8bbfcd2f92b47d45, type: 3}
       propertyPath: m_Name
-      value: Shotgun+
+      value: Shotgun_+
       objectReference: {fileID: 0}
     - target: {fileID: 6387233531401084807, guid: 2eab1bd9ed7d044f8bbfcd2f92b47d45, type: 3}
       propertyPath: m_LocalPosition.x
