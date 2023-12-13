@@ -22,12 +22,15 @@ namespace Players
         private PlayerHealthBar _playerHealthBar;
         private Coins _coins;
         private OnOffSounds _onOffSounds;
-        private bool _canShoot = true;
+        private bool _canAttack = true;
         private bool _canPlaySounds = true;
 
         public event Action PlayerDie;
+        public event Action WeaponsChanged;
 
         public int Coins => _wallet.Coins;
+        public Weapon CurrentWeapon => _currentWeapon;
+        public List<Weapon> Weapons => _weapons;
         
         private void Awake()
         {
@@ -48,11 +51,11 @@ namespace Players
         {
             _health.PlayerDie += OnPlayerDie;
             _health.HealthChanged += OnHealthChanged;
-            _attacker.CantShoot += OnCantShoot;
+            _attacker.CantAttack += OnCantAttack;
             _wallet.CoinsChanged += OnCoinsChanged;
-            _rayCaster.HaveTarget += OnShoot;
+            _rayCaster.HaveTarget += OnAttack;
             _onOffSounds.SwithSounds += OnSetPlaySounds;
-            _currentWeapon.UsedWeapon += OnCanShoot;
+            _currentWeapon.UsedWeapon += OnCanAttack;
         }
 
         private void OnPlayerDie()
@@ -61,11 +64,11 @@ namespace Players
             
             _health.PlayerDie -= OnPlayerDie;
             _health.HealthChanged -= OnHealthChanged;
-            _attacker.CantShoot -= OnCantShoot;
+            _attacker.CantAttack -= OnCantAttack;
             _wallet.CoinsChanged -= OnCoinsChanged;
-            _rayCaster.HaveTarget -= OnShoot;
+            _rayCaster.HaveTarget -= OnAttack;
             _onOffSounds.SwithSounds -= OnSetPlaySounds;
-            _currentWeapon.UsedWeapon -= OnCanShoot;
+            _currentWeapon.UsedWeapon -= OnCanAttack;
             
             _playerAnimator.StartDeathWithGun();
         }
@@ -80,10 +83,23 @@ namespace Players
         {
             _wallet.SpendCoins(weapon.Price);
             _weapons.Add(weapon);
+            
+            WeaponsChanged?.Invoke();
         }
         
-        public void SetCantShoot() => 
-            _canShoot = _canShoot ? false : true;
+        public void SetCantAttack() => 
+            _canAttack = _canAttack ? false : true;
+
+        public void SwapWeapons(int index)
+        {
+            _currentWeapon = _weapons[index];
+
+            if (index == 0)
+                _playerAnimator.StartAxeToGun();
+            
+            if (index == 1)
+                _playerAnimator.StartGunToAxe();
+        }
 
         private void OnSetPlaySounds() => 
             _canPlaySounds = _canPlaySounds ? false : true;
@@ -94,29 +110,34 @@ namespace Players
         private void OnCoinsChanged(int coins) => 
             _coins.RefreshCoinsText(coins);
 
-        private void OnCantShoot()
+        private void OnCantAttack()
         {
-            _playerAnimator.StartShoot();
+            // TODO: переписать этот колхоз
 
-            if (_canPlaySounds)
+            if (_canPlaySounds && _currentWeapon == _weapons[0])
             {
+                _playerAnimator.StartShootGun();
+                
                 if (_soundShoot != null)
                     _soundShoot.Play();
                 
                 if (_soundReloadGun != null)
                     _soundReloadGun?.Play();
             }
-            
-            _canShoot = false;
+
+            if (_weapons.Count > 1 && _currentWeapon == _weapons[1])
+                _playerAnimator.StartAttackAxe();
+
+            _canAttack = false;
         }
 
-        private void OnShoot(Vector3 target)
+        private void OnAttack(Vector3 target)
         {
-            if (_canShoot)
-                _attacker.Shoot(_currentWeapon, target);
+            if (_canAttack)
+                _attacker.Attack(_currentWeapon, target);
         }
 
-        private void OnCanShoot() => 
-            _canShoot = true;
+        private void OnCanAttack() => 
+            _canAttack = true;
     }
 }
