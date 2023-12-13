@@ -9,7 +9,6 @@ namespace UI
 
         public void RefreshCoinsText(int coins)
         {
-            print(coins);
             if (coins >= 0) 
                 _coinsText.text = coins.ToString();
         }
