@@ -6,7 +6,14 @@ namespace UI
     {
         [SerializeField] private GameObject _shop;
 
-        public void OpenClose() => 
-            _shop.SetActive(!_shop.activeSelf);
+        public void OpenClose()
+        {
+            // _shop.SetActive(!_shop.activeSelf);
+            
+            if (_shop.activeSelf)
+                _shop.SetActive(false);
+            else
+                _shop.SetActive(true);
+        }
     }
 }
