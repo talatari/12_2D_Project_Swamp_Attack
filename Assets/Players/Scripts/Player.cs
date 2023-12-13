@@ -82,6 +82,9 @@ namespace Players
             _weapons.Add(weapon);
         }
         
+        public void SetCantShoot() => 
+            _canShoot = _canShoot ? false : true;
+
         private void OnSetPlaySounds() => 
             _canPlaySounds = _canPlaySounds ? false : true;
 

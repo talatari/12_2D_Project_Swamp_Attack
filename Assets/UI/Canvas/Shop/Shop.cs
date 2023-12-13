@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Players;
 using UnityEngine;
@@ -18,11 +17,17 @@ namespace UI
                 AddWeapon(_weapons[i]);
         }
 
-        private void OnEnable() => 
+        private void OnEnable()
+        {
             Time.timeScale = 0;
+            _player.SetCantShoot();
+        }
 
-        private void OnDisable() => 
+        private void OnDisable()
+        {
             Time.timeScale = 1;
+            _player.SetCantShoot();
+        }
 
         private void AddWeapon(Weapon weapon)
         {

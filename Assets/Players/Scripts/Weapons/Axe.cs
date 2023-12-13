@@ -9,7 +9,7 @@ namespace Players
 
         public override void UseWeapon()
         {
-            
+            print("Use axe");
         }
 
         public override void UseWeapon(Transform shootPoint, Vector3 target) { }

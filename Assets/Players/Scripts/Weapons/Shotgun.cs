@@ -35,7 +35,7 @@ namespace Players
                 }
             }
         }
-
+        
         public override void UseWeapon() { }
     }
 }
