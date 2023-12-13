@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 namespace Players
@@ -18,6 +19,8 @@ namespace Players
         private Wallet _wallet;
         private PlayerAnimator _playerAnimator;
         private RayCaster _rayCaster;
+        private PlayerHealthBar _playerHealthBar;
+        private Coins _coins;
         private bool _canShoot = true;
 
         public event Action PlayerDie;
@@ -28,13 +31,18 @@ namespace Players
             _attacker = GetComponent<Attacker>();
             _wallet = GetComponent<Wallet>();
             _playerAnimator = GetComponent<PlayerAnimator>();
+            
             _rayCaster = FindObjectOfType<RayCaster>();
+            _playerHealthBar = FindObjectOfType<PlayerHealthBar>();
+            _coins = FindObjectOfType<Coins>();
+            
             _currentWeapon = _weapons[_weapons.Count - 1];
         }
 
         private void OnEnable()
         {
             _health.PlayerDie += OnPlayerDie;
+            _health.HealthChanged += OnHealthChanged;
             _attacker.CantShoot += OnCantShoot;
             _wallet.CoinsChanged += OnCoinsChanged;
             _rayCaster.HaveTarget += OnShoot;
@@ -46,6 +54,7 @@ namespace Players
             PlayerDie?.Invoke();
             
             _health.PlayerDie -= OnPlayerDie;
+            _health.HealthChanged -= OnHealthChanged;
             _attacker.CantShoot -= OnCantShoot;
             _wallet.CoinsChanged -= OnCoinsChanged;
             _rayCaster.HaveTarget -= OnShoot;
@@ -54,16 +63,17 @@ namespace Players
             _playerAnimator.StartDeathWithGun();
         }
 
-        private void OnCoinsChanged(int coins)
-        {
-            // TODO: реализовать обновления количества монет в интерфейсе
-        }
-
         public void TakeDamage(int damage) =>
             _health.TakeDamage(damage);
 
         public void GiveReward(int coins) => 
             _wallet.AddCoins(coins);
+
+        private void OnHealthChanged(int currentHealth, int maxHealth) => 
+            _playerHealthBar.RefreshHealthBar(currentHealth, maxHealth);
+
+        private void OnCoinsChanged(int coins) => 
+            _coins.RefreshCoinsText(coins);
 
         private void OnCantShoot()
         {
