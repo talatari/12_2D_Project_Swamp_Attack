@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 namespace UI
@@ -7,7 +6,7 @@ namespace UI
     {
         [SerializeField] private GameObject _shop;
 
-        public void OpenCloseShop() => 
+        public void OpenClose() => 
             _shop.SetActive(!_shop.activeSelf);
     }
 }

@@ -21,7 +21,9 @@ namespace Players
         private RayCaster _rayCaster;
         private PlayerHealthBar _playerHealthBar;
         private Coins _coins;
+        private OnOffSounds _onOffSounds;
         private bool _canShoot = true;
+        private bool _canPlaySounds = true;
 
         public event Action PlayerDie;
 
@@ -35,6 +37,7 @@ namespace Players
             _rayCaster = FindObjectOfType<RayCaster>();
             _playerHealthBar = FindObjectOfType<PlayerHealthBar>();
             _coins = FindObjectOfType<Coins>();
+            _onOffSounds = FindObjectOfType<OnOffSounds>();
             
             _currentWeapon = _weapons[_weapons.Count - 1];
         }
@@ -46,6 +49,7 @@ namespace Players
             _attacker.CantShoot += OnCantShoot;
             _wallet.CoinsChanged += OnCoinsChanged;
             _rayCaster.HaveTarget += OnShoot;
+            _onOffSounds.SwithSounds += OnSetPlaySounds;
             _currentWeapon.ShootedWeapon += OnCanShoot;
         }
 
@@ -58,6 +62,7 @@ namespace Players
             _attacker.CantShoot -= OnCantShoot;
             _wallet.CoinsChanged -= OnCoinsChanged;
             _rayCaster.HaveTarget -= OnShoot;
+            _onOffSounds.SwithSounds -= OnSetPlaySounds;
             _currentWeapon.ShootedWeapon -= OnCanShoot;
             
             _playerAnimator.StartDeathWithGun();
@@ -69,6 +74,9 @@ namespace Players
         public void GiveReward(int coins) => 
             _wallet.AddCoins(coins);
 
+        private void OnSetPlaySounds() => 
+            _canPlaySounds = _canPlaySounds ? false : true;
+
         private void OnHealthChanged(int currentHealth, int maxHealth) => 
             _playerHealthBar.RefreshHealthBar(currentHealth, maxHealth);
 
@@ -78,12 +86,15 @@ namespace Players
         private void OnCantShoot()
         {
             _playerAnimator.StartShoot();
+
+            if (_canPlaySounds)
+            {
+                if (_soundShoot != null)
+                    _soundShoot.Play();
                 
-            if (_soundShoot != null)
-                _soundShoot.Play();
-                
-            if (_soundReloadGun != null)
-                _soundReloadGun?.Play();
+                if (_soundReloadGun != null)
+                    _soundReloadGun?.Play();
+            }
             
             _canShoot = false;
         }
