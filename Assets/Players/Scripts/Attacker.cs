@@ -13,7 +13,7 @@ namespace Players
         {
             if (target.x < _shootPoint.position.x)
             {
-                weapon.Shoot(_shootPoint, target);
+                weapon.UseWeapon(_shootPoint, target);
                 
                 CantShoot?.Invoke();
             }

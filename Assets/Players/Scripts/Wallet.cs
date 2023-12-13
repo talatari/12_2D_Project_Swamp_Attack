@@ -6,11 +6,11 @@ namespace Players
     public class Wallet : MonoBehaviour
     {
         private int _coins = 0;
-
-        public int Coins => _coins;
         
         public event Action<int> CoinsChanged;
-        
+
+        public int Coins => _coins;
+
         public void AddCoins(int coins)
         {
             if (coins > 0)
