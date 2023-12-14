@@ -134,6 +134,15 @@ namespace Players
         private void OnCoinsChanged(int coins) => 
             _coins.RefreshCoinsText(coins);
 
+        private void OnAttack(Vector3 target)
+        {
+            if (_canAttack)
+                _attacker.Attack(_currentWeapon, target);
+        }
+        
+        private void OnCanAttack() => 
+            _canAttack = true;
+
         private void OnCantAttack()
         {
             // TODO: переписать этот колхоз
@@ -154,14 +163,5 @@ namespace Players
 
             _canAttack = false;
         }
-
-        private void OnAttack(Vector3 target)
-        {
-            if (_canAttack)
-                _attacker.Attack(_currentWeapon, target);
-        }
-
-        private void OnCanAttack() => 
-            _canAttack = true;
     }
 }
