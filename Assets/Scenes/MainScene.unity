@@ -439,16 +439,12 @@ PrefabInstance:
       objectReference: {fileID: 2014212459}
     - target: {fileID: 7327948433480582699, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
       propertyPath: _weaponPrefabs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7327948433480582699, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: _weaponPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 4067189088799888276, guid: a7596440abe024b54bae2742738d8fac, type: 3}
     - target: {fileID: 7327948433480582699, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
       propertyPath: _weaponPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 1079031951700316987, guid: 2eab1bd9ed7d044f8bbfcd2f92b47d45, type: 3}
+      objectReference: {fileID: 4067189088799888276, guid: a7596440abe024b54bae2742738d8fac, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -473,11 +469,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5659502799917303199, guid: b91f9d93bed784efb9b5560a9463c608, type: 3}
   m_PrefabInstance: {fileID: 1862529827069903698}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1514170363 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6710405330242237028, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
-  m_PrefabInstance: {fileID: 6683627917548634256}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1544247115
 GameObject:
@@ -635,6 +626,26 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 2014212459}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[0].Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[1].Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[1].Delay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[2].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[2].Delay
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -751,13 +762,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251559269179299661, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
-      propertyPath: _isBuyed
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 8359414396973826640, guid: 61a3e1151a6a549e78672543175c44d0, type: 3}
     - target: {fileID: 3251559269179299661, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
-      propertyPath: AttackDelay
-      value: 2
-      objectReference: {fileID: 0}
+      propertyPath: AxeBladePrefab
+      value: 
+      objectReference: {fileID: 7545376685392228864, guid: 3af8b5b31feb142d88ec98eb14e5bfa1, type: 3}
     - target: {fileID: 5233991361602472920, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
       propertyPath: _soundShoot
       value: 
@@ -766,25 +777,9 @@ PrefabInstance:
       propertyPath: _soundReloadGun
       value: 
       objectReference: {fileID: 2094321528}
-    - target: {fileID: 6267328025593494381, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
-      propertyPath: _attackPoint
-      value: 
-      objectReference: {fileID: 1514170363}
     - target: {fileID: 6304789768190940694, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
       propertyPath: m_Name
       value: Player_+
-      objectReference: {fileID: 0}
-    - target: {fileID: 6710405330242237028, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6710405330242237028, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8087877168747814649, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
-      propertyPath: m_Name
-      value: AttackPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

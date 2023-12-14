@@ -29,13 +29,13 @@ namespace Players
                 
                 for (var i = 0; i < _offsets.Length; i++)
                 {
-                    Bullet bullet = Instantiate(Bullet, position, Quaternion.identity);
+                    Bullet bullet = Instantiate(BulletPrefab, position, Quaternion.identity);
                     bullet.SetDamage(Damage);
                     bullet.SetTargetPosition(target + _offsets[i]);
                 }
             }
         }
         
-        public override void UseWeapon() { }
+        public override void UseWeapon(Transform shootPoint) { }
     }
 }
