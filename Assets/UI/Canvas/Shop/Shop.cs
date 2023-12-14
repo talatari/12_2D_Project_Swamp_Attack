@@ -21,12 +21,14 @@ namespace UI
         {
             Time.timeScale = 0;
             _player.SetCantAttack();
+            _player.UnsubscribeRayCaster();
         }
 
         private void OnDisable()
         {
             Time.timeScale = 1;
             _player.SetCantAttack();
+            _player.SubscribeRayCaster();
         }
 
         private void AddWeaponPrefabs(Weapon weaponPrefab)
@@ -45,7 +47,8 @@ namespace UI
             {
                 Weapon weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
                 _player.BuyWeapon(weapon);
-                weapon.Buy();
+                
+                weaponPrefab.Buy();
                 weaponView.SellButtonClick -= OnSellButtonClick;
             }
         }
