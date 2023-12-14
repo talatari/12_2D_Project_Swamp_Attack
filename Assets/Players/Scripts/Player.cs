@@ -25,7 +25,7 @@ namespace Players
         private bool _canAttack = true;
         private bool _canPlaySounds = true;
 
-        public event Action PlayerDie;
+        public event Action Dead;
         public event Action WeaponsChanged;
 
         public int Coins => _wallet.Coins;
@@ -49,8 +49,10 @@ namespace Players
 
         private void OnEnable()
         {
-            _health.PlayerDie += OnPlayerDie;
+            _health.HealthOver += OnHealthOver;
             _health.HealthChanged += OnHealthChanged;
+            _health.PlayerDie += OnPlayerDie;
+            
             _attacker.CantAttack += OnCantAttack;
             _wallet.CoinsChanged += OnCoinsChanged;
             SubscribeRayCaster();
@@ -58,19 +60,16 @@ namespace Players
             _currentWeapon.CanUseWeapon += OnCanAttack;
         }
 
-        private void OnPlayerDie()
+        private void OnDestroy()
         {
-            PlayerDie?.Invoke();
-            
-            _health.PlayerDie -= OnPlayerDie;
+            _health.HealthOver -= OnHealthOver;
             _health.HealthChanged -= OnHealthChanged;
+            
             _attacker.CantAttack -= OnCantAttack;
             _wallet.CoinsChanged -= OnCoinsChanged;
             UnsubscribeRayCaster();
             _onOffSounds.SwithSounds -= OnSetPlaySounds;
             _currentWeapon.CanUseWeapon -= OnCanAttack;
-            
-            _playerAnimator.StartDeathWithGun();
         }
 
         public void TakeDamage(int damage) =>
@@ -88,7 +87,7 @@ namespace Players
             
             WeaponsChanged?.Invoke();
         }
-        
+
         public void SetCantAttack() => 
             _canAttack = _canAttack ? false : true;
 
@@ -110,6 +109,21 @@ namespace Players
 
         public void UnsubscribeRayCaster() => 
             _rayCaster.HaveTarget -= OnAttack;
+
+        private void OnPlayerDie()
+        {
+            _health.PlayerDie -= OnPlayerDie; 
+            _health.HealthChanged -= OnHealthChanged;
+            _attacker.CantAttack -= OnCantAttack;
+            _wallet.CoinsChanged -= OnCoinsChanged;
+            UnsubscribeRayCaster();
+            _onOffSounds.SwithSounds -= OnSetPlaySounds;
+            _currentWeapon.CanUseWeapon -= OnCanAttack;
+            _playerAnimator.StartDeathWithGun();
+        }
+
+        private void OnHealthOver() => 
+            Dead?.Invoke();
 
         private void OnSetPlaySounds() => 
             _canPlaySounds = _canPlaySounds ? false : true;

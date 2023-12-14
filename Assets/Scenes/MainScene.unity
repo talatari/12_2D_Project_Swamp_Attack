@@ -628,6 +628,10 @@ PrefabInstance:
       objectReference: {fileID: 2014212459}
     - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
       propertyPath: _waves.Array.data[0].Count
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[0].Delay
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}

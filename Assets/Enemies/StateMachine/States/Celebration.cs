@@ -10,9 +10,9 @@ namespace Enemies
         private void Awake() =>
             _enemyAnimator = GetComponent<EnemyAnimator>();
 
-        private void OnEnable() =>
+        private void OnEnable() => 
             _enemyAnimator.StartCelebration();
-        
+
         private void OnDisable() =>
             _enemyAnimator.StopPlayback();
     }

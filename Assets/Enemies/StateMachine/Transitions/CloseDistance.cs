@@ -18,5 +18,8 @@ namespace Enemies
             if (Vector2.Distance(transform.position, Player.transform.position) < _transitionRange) 
                 NeedTransit = true;
         }
+        
+        public void Transit() => 
+            NeedTransit = true;
     }
 }

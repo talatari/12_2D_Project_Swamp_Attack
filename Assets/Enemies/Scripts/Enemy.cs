@@ -9,7 +9,8 @@ namespace Enemies
     {
         [SerializeField] private int _coins = 2;
         [SerializeField] private PlayerDied _playerDied;
-
+        [SerializeField] private CloseDistance _closeDistance;
+        
         private Health _health;
         private Player _player;
 
@@ -23,7 +24,7 @@ namespace Enemies
         public void Init(Player player)
         {
             _player = player;
-            _player.PlayerDie += OnPlayerDie;
+            _player.Dead += OnPlayerDead;
             _health.EnemyDie += OnEnemyDie;
         }
 
@@ -36,13 +37,16 @@ namespace Enemies
             
             EnemyDie?.Invoke(this);
             
-            _player.PlayerDie -= OnPlayerDie;
+            _player.Dead -= OnPlayerDead;
             _health.EnemyDie -= OnEnemyDie;
             
             Destroy(gameObject);
         }
 
-        private void OnPlayerDie() =>
+        private void OnPlayerDead()
+        {
+            _closeDistance.Transit();
             _playerDied.Transit();
+        }
     }
 }
