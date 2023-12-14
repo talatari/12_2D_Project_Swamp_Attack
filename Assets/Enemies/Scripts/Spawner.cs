@@ -56,7 +56,7 @@ namespace Enemies
         private void Spawn()
         {
             Transform spawnPoint = GetSpawnPoint();
-            Enemy enemy = Instantiate(_currentWave.EnemyPrefab, spawnPoint.position, Quaternion.identity, spawnPoint);
+            Enemy enemy = Instantiate(GetRandomEnemy(), spawnPoint.position, Quaternion.identity, spawnPoint);
             enemy.name = "Enemy" + enemy.GetInstanceID();
             enemy.Init(_player);
             enemy.EnemyDie += OnEnemyDie;
@@ -84,5 +84,8 @@ namespace Enemies
 
         private Transform GetSpawnPoint() => 
             _spawnPoints[Random.Range(0, _spawnPoints.Length)];
+        
+        private Enemy GetRandomEnemy() =>
+            _currentWave.EnemyPrefabs[Random.Range(0, _currentWave.EnemyPrefabs.Length)];
     }
 }

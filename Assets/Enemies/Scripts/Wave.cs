@@ -5,7 +5,7 @@ namespace Enemies
     [Serializable]
     public class Wave
     {
-        public Enemy EnemyPrefab;
+        public Enemy[] EnemyPrefabs;
         public float Delay;
         public int Count;
     }
