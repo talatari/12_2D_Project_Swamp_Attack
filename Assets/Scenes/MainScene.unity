@@ -578,6 +578,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1919713503}
     m_Modifications:
+    - target: {fileID: 563226241962073501, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 723269067110300413, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4249061870492603060, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
       propertyPath: m_Name
       value: Spawner_+
@@ -650,6 +658,42 @@ PrefabInstance:
       propertyPath: _waves.Array.data[2].Delay
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[0].EnemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[1].EnemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[2].EnemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[0].EnemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 23776672179709840, guid: c93516ceb074b4556ba416736216e2d6, type: 3}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[0].EnemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 23776672179709840, guid: c93516ceb074b4556ba416736216e2d6, type: 3}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[1].EnemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2564537227244355142, guid: 0dd8208809ea8445dba38616ff9664d1, type: 3}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[1].EnemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 2564537227244355142, guid: 0dd8208809ea8445dba38616ff9664d1, type: 3}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[2].EnemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2564537227244355142, guid: 0dd8208809ea8445dba38616ff9664d1, type: 3}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[2].EnemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 2564537227244355142, guid: 0dd8208809ea8445dba38616ff9664d1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
