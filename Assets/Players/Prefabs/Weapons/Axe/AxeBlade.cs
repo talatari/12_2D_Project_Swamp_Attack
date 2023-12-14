@@ -7,6 +7,9 @@ namespace Players.Prefabs.Weapons.Axe
     {
         private int _damage;
 
+        private void Start() => 
+            Destroy(gameObject, 1f);
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent(out Enemy enemy))

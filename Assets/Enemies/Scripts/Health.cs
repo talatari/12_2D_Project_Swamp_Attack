@@ -13,9 +13,6 @@ namespace Enemies
         public event Action EnemyDie;
         public event Action<int, int> HealthChanged;
 
-        public int MaxHealth => _maxHealth;
-        public int CurrentHealth => _currentHealth;
-    
         private void Awake() => 
             _currentHealth = _maxHealth;
 

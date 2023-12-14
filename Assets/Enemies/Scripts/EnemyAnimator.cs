@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Enemies
@@ -6,6 +7,8 @@ namespace Enemies
     public class EnemyAnimator : MonoBehaviour
     {
         private Animator _animator;
+        
+        public event Action OnSpawnProjectile;
 
         private void Awake() => 
             _animator = GetComponent<Animator>();
@@ -21,5 +24,8 @@ namespace Enemies
 
         public void StopPlayback() => 
             _animator.StartPlayback();
+        
+        public void SpawnProjectile() => 
+            OnSpawnProjectile?.Invoke();
     }
 }

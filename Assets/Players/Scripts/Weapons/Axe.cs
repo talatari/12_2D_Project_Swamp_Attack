@@ -27,6 +27,7 @@ namespace Players
                 
                 AxeBlade axeBlade = Instantiate(AxeBladePrefab, shootPoint.position, Quaternion.identity);
                 axeBlade.SetDamage(Damage);
+                axeBlade.transform.SetParent(transform);
             }
         }
 
