@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45b42fb93c1f42e8956ce1483810b9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10
+  _maxHealth: 13
 --- !u!114 &7758752203669299076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 8028519016083089458}
-  _damage: 15
+  _damage: 10
   _attackDelay: 3
   _projectilePrefab: {fileID: 7993582893456124277, guid: a8c413379ab844b7b938e2297be45c90, type: 3}
 --- !u!114 &8028519016083089458
