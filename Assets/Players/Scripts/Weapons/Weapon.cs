@@ -14,7 +14,7 @@ namespace Players
         [SerializeField] private Sprite _sprite;
         [SerializeField] protected Bullet Bullet;
         
-        public abstract event Action UsedWeapon;
+        public abstract event Action CanUseWeapon;
         
         public string Title => _title;
         public int Price => _price;

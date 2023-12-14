@@ -6,15 +6,15 @@ namespace UI
 {
     public class Shop : MonoBehaviour
     {
-        [SerializeField] private List<Weapon> _weapons;
+        [SerializeField] private List<Weapon> _weaponPrefabs;
         [SerializeField] private Player _player;
         [SerializeField] private WeaponView _weaponViewPrefab;
         [SerializeField] private GameObject _weaponContainer;
 
         private void Start()
         {
-            for (int i = 0; i < _weapons.Count; i++)
-                AddWeapon(_weapons[i]);
+            for (int i = 0; i < _weaponPrefabs.Count; i++)
+                AddWeaponPrefabs(_weaponPrefabs[i]);
         }
 
         private void OnEnable()
@@ -29,20 +29,21 @@ namespace UI
             _player.SetCantAttack();
         }
 
-        private void AddWeapon(Weapon weapon)
+        private void AddWeaponPrefabs(Weapon weaponPrefab)
         {
             WeaponView weaponView = Instantiate(_weaponViewPrefab, _weaponContainer.transform);
-            weaponView.Render(weapon);
+            weaponView.Render(weaponPrefab);
             weaponView.SellButtonClick += OnSellButtonClick;
         }
 
-        private void OnSellButtonClick(Weapon weapon, WeaponView weaponView) => 
-            TrySellWeapon(weapon, weaponView);
+        private void OnSellButtonClick(Weapon weaponPrefab, WeaponView weaponView) => 
+            TrySellWeapon(weaponPrefab, weaponView);
 
-        private void TrySellWeapon(Weapon weapon, WeaponView weaponView)
+        private void TrySellWeapon(Weapon weaponPrefab, WeaponView weaponView)
         {
-            if (weapon.Price <= _player.Coins)
+            if (weaponPrefab.Price <= _player.Coins)
             {
+                Weapon weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
                 _player.BuyWeapon(weapon);
                 weapon.Buy();
                 weaponView.SellButtonClick -= OnSellButtonClick;
