@@ -51,6 +51,7 @@ namespace Enemies
         {
             _currentWave = _waves[index];
             WaveStarted?.Invoke(index + 1);
+            print("Wave " + (index + 1));
         }
 
         private void Spawn()
