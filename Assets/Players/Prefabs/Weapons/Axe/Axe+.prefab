@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _title: Axe
-  Damage: 3
-  AttackDelay: 3
+  Damage: 20
+  AttackDelay: 2
   _price: 1
   _isBuyed: 0
   _isMeleeWeapon: 1
