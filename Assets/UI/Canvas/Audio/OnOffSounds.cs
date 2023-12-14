@@ -22,10 +22,13 @@ namespace UI
 
         public void OnOff()
         {
-            _sounds.SetActive(!_sounds.activeSelf);
-            _soundsRawImage.texture = _sounds.activeSelf ? _onSoundsTexture : _offSoundsTexture;
+            if (_sounds != null)
+            {
+                _sounds.SetActive(!_sounds.activeSelf);
+                _soundsRawImage.texture = _sounds.activeSelf ? _onSoundsTexture : _offSoundsTexture;
             
-            SwithSounds?.Invoke();
+                SwithSounds?.Invoke();
+            }
         }
     }
 }

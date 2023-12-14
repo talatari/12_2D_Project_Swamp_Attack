@@ -19,8 +19,11 @@ namespace UI
 
         public void OnOff()
         {
-            _music.SetActive(!_music.activeSelf);
-            _musicRawImage.texture = _music.activeSelf ? _onMusicTexture : _offMusicTexture;
+            if (_music != null)
+            {
+                _music.SetActive(!_music.activeSelf);
+                _musicRawImage.texture = _music.activeSelf ? _onMusicTexture : _offMusicTexture;
+            }
         }
     }
 }
