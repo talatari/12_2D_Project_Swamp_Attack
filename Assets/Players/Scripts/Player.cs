@@ -53,7 +53,7 @@ namespace Players
             _health.HealthChanged += OnHealthChanged;
             _attacker.CantAttack += OnCantAttack;
             _wallet.CoinsChanged += OnCoinsChanged;
-            _rayCaster.HaveTarget += OnAttack;
+            SubscribeRayCaster();
             _onOffSounds.SwithSounds += OnSetPlaySounds;
             _currentWeapon.CanUseWeapon += OnCanAttack;
         }
@@ -66,7 +66,7 @@ namespace Players
             _health.HealthChanged -= OnHealthChanged;
             _attacker.CantAttack -= OnCantAttack;
             _wallet.CoinsChanged -= OnCoinsChanged;
-            _rayCaster.HaveTarget -= OnAttack;
+            UnsubscribeRayCaster();
             _onOffSounds.SwithSounds -= OnSetPlaySounds;
             _currentWeapon.CanUseWeapon -= OnCanAttack;
             
@@ -104,6 +104,12 @@ namespace Players
             if (index == 1)
                 _playerAnimator.StartGunToAxe();
         }
+
+        public void SubscribeRayCaster() => 
+            _rayCaster.HaveTarget += OnAttack;
+
+        public void UnsubscribeRayCaster() => 
+            _rayCaster.HaveTarget -= OnAttack;
 
         private void OnSetPlaySounds() => 
             _canPlaySounds = _canPlaySounds ? false : true;
