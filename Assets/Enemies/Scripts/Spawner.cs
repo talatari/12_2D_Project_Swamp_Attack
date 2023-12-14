@@ -57,6 +57,7 @@ namespace Enemies
         {
             Transform spawnPoint = GetSpawnPoint();
             Enemy enemy = Instantiate(_currentWave.EnemyPrefab, spawnPoint.position, Quaternion.identity, spawnPoint);
+            enemy.name = "Enemy" + enemy.GetInstanceID();
             enemy.Init(_player);
             enemy.EnemyDie += OnEnemyDie;
             
