@@ -55,7 +55,7 @@ namespace Players
             _wallet.CoinsChanged += OnCoinsChanged;
             _rayCaster.HaveTarget += OnAttack;
             _onOffSounds.SwithSounds += OnSetPlaySounds;
-            _currentWeapon.UsedWeapon += OnCanAttack;
+            _currentWeapon.CanUseWeapon += OnCanAttack;
         }
 
         private void OnPlayerDie()
@@ -68,7 +68,7 @@ namespace Players
             _wallet.CoinsChanged -= OnCoinsChanged;
             _rayCaster.HaveTarget -= OnAttack;
             _onOffSounds.SwithSounds -= OnSetPlaySounds;
-            _currentWeapon.UsedWeapon -= OnCanAttack;
+            _currentWeapon.CanUseWeapon -= OnCanAttack;
             
             _playerAnimator.StartDeathWithGun();
         }
@@ -84,6 +84,8 @@ namespace Players
             _wallet.SpendCoins(weapon.Price);
             _weapons.Add(weapon);
             
+            weapon.transform.SetParent(transform);
+            
             WeaponsChanged?.Invoke();
         }
         
@@ -92,7 +94,9 @@ namespace Players
 
         public void SwapWeapons(int index)
         {
+            _currentWeapon.CanUseWeapon -= OnCanAttack;
             _currentWeapon = _weapons[index];
+            _currentWeapon.CanUseWeapon += OnCanAttack;
 
             if (index == 0)
                 _playerAnimator.StartAxeToGun();

@@ -345,34 +345,6 @@ PrefabInstance:
       propertyPath: _sounds
       value: 
       objectReference: {fileID: 1324884720}
-    - target: {fileID: 3236364610726308189, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3236364610726308189, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3236364610726308189, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 807308083}
-    - target: {fileID: 3236364610726308189, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3236364610726308189, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSecondSlotClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 3236364610726308189, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI.WeaponSlots, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3236364610726308189, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3846359616829514480, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -453,34 +425,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4821488132233341987, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821488132233341987, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821488132233341987, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 807308083}
-    - target: {fileID: 4821488132233341987, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821488132233341987, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnFirstSlotClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821488132233341987, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI.WeaponSlots, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821488132233341987, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6066698027865195486, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
       propertyPath: _music
       value: 
@@ -493,6 +437,18 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 2014212459}
+    - target: {fileID: 7327948433480582699, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
+      propertyPath: _weaponPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327948433480582699, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
+      propertyPath: _weaponPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4067189088799888276, guid: a7596440abe024b54bae2742738d8fac, type: 3}
+    - target: {fileID: 7327948433480582699, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
+      propertyPath: _weaponPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1079031951700316987, guid: 2eab1bd9ed7d044f8bbfcd2f92b47d45, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -503,17 +459,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3846359616829514480, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
   m_PrefabInstance: {fileID: 807308072}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &807308083 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2376465572911326122, guid: c54905b7b376a4419906cdf45296ef17, type: 3}
-  m_PrefabInstance: {fileID: 807308072}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edda8aab0aed5444b9b3f3a1245d4552, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1324884720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1931811497007101769, guid: 158f44bbef3c9402e9c8cb954e7421ba, type: 3}
@@ -804,6 +749,14 @@ PrefabInstance:
     - target: {fileID: 53269989929343489, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251559269179299661, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
+      propertyPath: _isBuyed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251559269179299661, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
+      propertyPath: AttackDelay
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5233991361602472920, guid: 7c668dc90cc7740aa8a0f81ff0bd7b75, type: 3}
       propertyPath: _soundShoot

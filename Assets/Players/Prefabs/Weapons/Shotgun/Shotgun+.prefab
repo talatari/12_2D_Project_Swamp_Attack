@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: Shotgun
   Damage: 3
-  ShootDelay: 1
+  AttackDelay: 2
   _price: 100
   _isBuyed: 0
+  _isMeleeWeapon: 0
   _sprite: {fileID: 21300000, guid: 5553ba0bdbd4c4848978e44c34d7ed28, type: 3}
   Bullet: {fileID: 8359414396973826640, guid: 61a3e1151a6a549e78672543175c44d0, type: 3}
