@@ -16,7 +16,7 @@ namespace Players
                 if (weapon.IsMeleeWeapon == false)
                     weapon.UseWeapon(_attackPoint, target);
                 else
-                    weapon.UseWeapon();
+                    weapon.UseWeapon(_attackPoint);
                 
                 CantAttack?.Invoke();
             }

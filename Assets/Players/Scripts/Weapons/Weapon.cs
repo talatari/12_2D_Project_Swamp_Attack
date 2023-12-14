@@ -1,4 +1,5 @@
 using System;
+using Players.Prefabs.Weapons.Axe;
 using UnityEngine;
 
 namespace Players
@@ -12,7 +13,8 @@ namespace Players
         [SerializeField] private bool _isBuyed;
         [SerializeField] private bool _isMeleeWeapon;
         [SerializeField] private Sprite _sprite;
-        [SerializeField] protected Bullet Bullet;
+        [SerializeField] protected Bullet BulletPrefab;
+        [SerializeField] protected AxeBlade AxeBladePrefab;
         
         public abstract event Action CanUseWeapon;
         
@@ -24,7 +26,7 @@ namespace Players
 
         public abstract void UseWeapon(Transform shootPoint, Vector3 target);
 
-        public abstract void UseWeapon();
+        public abstract void UseWeapon(Transform shootPoint);
 
         public void Buy() => 
             _isBuyed = true;

@@ -1,4 +1,5 @@
 using System;
+using Players.Prefabs.Weapons.Axe;
 using UnityEngine;
 
 namespace Players
@@ -18,13 +19,14 @@ namespace Players
                 CanUseWeapon?.Invoke();
         }
         
-        public override void UseWeapon()
+        public override void UseWeapon(Transform shootPoint)
         {
             if (_elapsedTime < _attackDelayDone)
             {
                 _elapsedTime = AttackDelay;
                 
-                
+                AxeBlade axeBlade = Instantiate(AxeBladePrefab, shootPoint.position, Quaternion.identity);
+                axeBlade.SetDamage(Damage);
             }
         }
 

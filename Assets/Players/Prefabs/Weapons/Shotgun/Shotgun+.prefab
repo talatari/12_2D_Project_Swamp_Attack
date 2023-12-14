@@ -51,4 +51,5 @@ MonoBehaviour:
   _isBuyed: 0
   _isMeleeWeapon: 0
   _sprite: {fileID: 21300000, guid: 5553ba0bdbd4c4848978e44c34d7ed28, type: 3}
-  Bullet: {fileID: 8359414396973826640, guid: 61a3e1151a6a549e78672543175c44d0, type: 3}
+  BulletPrefab: {fileID: 8359414396973826640, guid: 61a3e1151a6a549e78672543175c44d0, type: 3}
+  AxeBladePrefab: {fileID: 7545376685392228864, guid: 3af8b5b31feb142d88ec98eb14e5bfa1, type: 3}
