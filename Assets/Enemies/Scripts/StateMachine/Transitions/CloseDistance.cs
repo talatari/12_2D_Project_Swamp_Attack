@@ -15,7 +15,7 @@ namespace Enemies
             if (Player == null)
                 return;
             
-            if (Vector2.Distance(transform.position, Player.transform.position) < _transitionRange) 
+            if (Vector3.Distance(transform.position, Player.transform.position) < _transitionRange) 
                 NeedTransit = true;
         }
         

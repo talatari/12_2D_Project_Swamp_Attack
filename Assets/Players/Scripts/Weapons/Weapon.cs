@@ -1,5 +1,4 @@
 using System;
-using Players.Prefabs.Weapons.Axe;
 using UnityEngine;
 
 namespace Players

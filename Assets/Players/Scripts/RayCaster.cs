@@ -1,8 +1,8 @@
+using System;
+using UnityEngine;
+
 namespace Players
 {
-    using System;
-    using UnityEngine;
-
     public class RayCaster : MonoBehaviour
     {
         private Camera _camera;

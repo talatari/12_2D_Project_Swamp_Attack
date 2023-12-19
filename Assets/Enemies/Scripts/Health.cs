@@ -22,13 +22,10 @@ namespace Enemies
         public void TakeDamage(int damage)
         {
             _currentHealth = Mathf.Clamp(_currentHealth -= damage, _minHealth, _maxHealth);
-        
-            // print($"Enemies.Health.CurrentHealth: {_currentHealth}");
-            
+            HealthChanged?.Invoke(_currentHealth, _maxHealth);
+
             if (_currentHealth <= _minHealth)
                 EnemyDie?.Invoke();
-        
-            HealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
     }
 }

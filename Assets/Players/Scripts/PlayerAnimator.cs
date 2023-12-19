@@ -11,21 +11,21 @@ namespace Players
             _animator = GetComponent<Animator>();
 
         public void StartShootGun() => 
-            _animator.SetTrigger(AnimatorParameters.PlayerShootGun);
+            _animator.SetTrigger(AnimatorParameters.ShootGun);
 
         public void StartAttackAxe() =>
-            _animator.SetTrigger(AnimatorParameters.PlayerAttackAxe);
+            _animator.SetTrigger(AnimatorParameters.AttackAxe);
 
         public void StartDeathWithGun() =>
-            _animator.SetTrigger(AnimatorParameters.PlayerDeathWithGun);
+            _animator.SetTrigger(AnimatorParameters.DeathWithGun);
 
         public void StartDeathWithAxe() =>
-            _animator.SetTrigger(AnimatorParameters.PlayerDeathWithAxe);
+            _animator.SetTrigger(AnimatorParameters.DeathWithAxe);
 
         public void StartGunToAxe() =>
-            _animator.SetTrigger(AnimatorParameters.PlayerGunToAxe);
+            _animator.SetTrigger(AnimatorParameters.GunToAxe);
 
         public void StartAxeToGun() =>
-            _animator.SetTrigger(AnimatorParameters.PlayerAxeToGun);
+            _animator.SetTrigger(AnimatorParameters.AxeToGun);
     }
 }

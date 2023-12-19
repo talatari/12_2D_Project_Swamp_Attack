@@ -9,7 +9,7 @@ namespace Enemies
         private void Update()
         {
             if (Player != null)
-                transform.position = Vector2.MoveTowards(
+                transform.position = Vector3.MoveTowards(
                     transform.position, Player.transform.position, _speed * Time.deltaTime);
         }
     }

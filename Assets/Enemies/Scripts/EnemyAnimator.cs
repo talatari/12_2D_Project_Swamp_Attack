@@ -14,13 +14,13 @@ namespace Enemies
             _animator = GetComponent<Animator>();
 
         public void StartAttack() => 
-            _animator.SetTrigger(AnimatorParameters.EnemyAttack);
+            _animator.SetTrigger(AnimatorParameters.Attack);
         
         public void StartCelebration() => 
-            _animator.SetTrigger(AnimatorParameters.EnemyCelebration);
+            _animator.SetTrigger(AnimatorParameters.Celebration);
         
         public void StartDie() => 
-            _animator.SetTrigger(AnimatorParameters.EnemyDie);
+            _animator.SetTrigger(AnimatorParameters.Die);
 
         public void StopPlayback() => 
             _animator.StartPlayback();

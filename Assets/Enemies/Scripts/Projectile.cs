@@ -9,7 +9,7 @@ namespace Enemies
         
         private int _damage;
         private Player _player;
-        private Vector3 _offsetCenterTarget = new Vector3(0, 0.5f, 0);
+        private Vector3 _offsetCenterTarget = new (0, 0.5f, 0);
         
         public void Init(int damage, Player player)
         {
@@ -20,11 +20,8 @@ namespace Enemies
         private void Update()
         {
             if (_player != null)
-            {
-                transform.position = Vector2.MoveTowards(
-                    transform.position, _player.transform.position + _offsetCenterTarget, 
-                    _speed * Time.deltaTime);
-            }
+                transform.position = Vector3.MoveTowards(
+                    transform.position, _player.transform.position + _offsetCenterTarget, _speed * Time.deltaTime);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
