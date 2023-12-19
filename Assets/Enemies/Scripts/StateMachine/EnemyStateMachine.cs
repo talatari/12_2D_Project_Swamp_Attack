@@ -12,8 +12,6 @@ namespace Enemies
         private State _currentState;
         private Player _player;
         
-        public State CurrentState => _currentState;
-
         private void Start()
         {
             _enemy = GetComponent<Enemy>();
