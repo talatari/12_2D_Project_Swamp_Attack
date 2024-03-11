@@ -117,12 +117,12 @@ MonoBehaviour:
     Count: 3
   - EnemyPrefabs:
     - {fileID: 23776672179709840, guid: c93516ceb074b4556ba416736216e2d6, type: 3}
-    Delay: 0.75
+    Delay: 1.25
     Count: 5
   - EnemyPrefabs:
     - {fileID: 23776672179709840, guid: c93516ceb074b4556ba416736216e2d6, type: 3}
     - {fileID: 2564537227244355142, guid: 0dd8208809ea8445dba38616ff9664d1, type: 3}
-    Delay: 0.5
+    Delay: 1.5
     Count: 7
   _spawnPoints:
   - {fileID: 7868891664623809594}
