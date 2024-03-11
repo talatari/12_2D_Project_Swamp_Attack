@@ -631,13 +631,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2014212459}
     - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
-      propertyPath: _waves.Array.data[1].Delay
-      value: 1.25
+      propertyPath: _waves.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
-      propertyPath: _waves.Array.data[2].Delay
+      propertyPath: _waves.Array.data[3].Count
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[3].Delay
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[3].EnemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[3].EnemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 23776672179709840, guid: c93516ceb074b4556ba416736216e2d6, type: 3}
+    - target: {fileID: 8233510328139344139, guid: d60fa4d0d55624831b4fa4d46bb8174a, type: 3}
+      propertyPath: _waves.Array.data[3].EnemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 2564537227244355142, guid: 0dd8208809ea8445dba38616ff9664d1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
